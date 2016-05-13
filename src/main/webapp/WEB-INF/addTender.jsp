@@ -17,7 +17,7 @@
     <body>
 
         <c:import url="/inc/menu.jsp" />
-
+// teeeeeeest
 
         <form action = "addTender" method="post">
 

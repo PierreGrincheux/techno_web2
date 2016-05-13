@@ -33,7 +33,7 @@
             <c:if test="${member.role == 'CP'}">
                 <p><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
                 <p><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
-                <p><a href="<c:url value="/ShowProspect"/>">Consult prospects</a></p>
+                <p><a href="<c:url value="/ShowProspect"/>">Consult prospects - coucou</a></p>
             </c:if>
 
         </fieldset>

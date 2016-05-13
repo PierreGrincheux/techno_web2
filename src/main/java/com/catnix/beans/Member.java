@@ -10,7 +10,7 @@ package com.catnix.beans;
  * @author Fritsch
  */
 public class Member {
-
+ //test
     private static final Long serialVersionUID = 1L;
     private Long id;
     private String lastname;

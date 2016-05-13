@@ -1,4 +1,6 @@
 com\catnix\dao\TenderDaoImpl.class
+com\catnix\dao\ProspectDaoImpl.class
+com\catnix\forms\ProspectForm.class
 com\catnix\servlets\HandleTender.class
 com\catnix\exceptions\DAOConfigurationException.class
 com\catnix\dao\TenderToAssignDaoImpl.class
@@ -6,8 +8,10 @@ com\catnix\dao\DAOFactoryInit.class
 com\catnix\servlets\AcceptTender.class
 com\catnix\forms\PositionOnTenderForm.class
 com\catnix\servlets\Connection.class
+com\catnix\servlets\ShowProspect.class
 com\catnix\servlets\AssignCpToTender.class
 com\catnix\methods\Methods.class
+com\catnix\servlets\ShowProspectCard.class
 com\catnix\dao\DAOFactory.class
 com\catnix\servlets\ConsultTendersToAssign.class
 com\catnix\servlets\Index.class
@@ -24,7 +28,10 @@ com\catnix\dao\MemberDaoImpl.class
 com\catnix\beans\Tender.class
 com\catnix\servlets\AddTender.class
 com\catnix\servlets\Disconnection.class
+com\catnix\beans\Prospect.class
+com\catnix\dao\ProspectDao.class
 com\catnix\beans\TenderToAssign.class
 com\catnix\dao\TenderDao.class
+com\catnix\servlets\AddProspect.class
 com\catnix\servlets\PositionOnTender.class
 com\catnix\servlets\RejectTender.class

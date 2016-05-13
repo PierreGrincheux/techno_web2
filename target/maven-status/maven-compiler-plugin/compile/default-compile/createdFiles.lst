@@ -6,12 +6,15 @@ com\catnix\dao\DAOFactoryInit.class
 com\catnix\servlets\AcceptTender.class
 com\catnix\forms\PositionOnTenderForm.class
 com\catnix\servlets\Connection.class
+com\catnix\servlets\AssignCpToTender.class
 com\catnix\methods\Methods.class
 com\catnix\dao\DAOFactory.class
+com\catnix\servlets\ConsultTendersToAssign.class
 com\catnix\servlets\Index.class
 com\catnix\dao\TenderToAssignDao.class
 com\catnix\beans\Member.class
 com\catnix\forms\ConnectionForm.class
+com\catnix\servlets\ConsultMyTenders.class
 com\catnix\servlets\ConsultTenders.class
 com\catnix\dao\MemberDao.class
 com\catnix\exceptions\DAOException.class
@@ -21,7 +24,6 @@ com\catnix\dao\MemberDaoImpl.class
 com\catnix\beans\Tender.class
 com\catnix\servlets\AddTender.class
 com\catnix\servlets\Disconnection.class
-com\catnix\exceptions\FormValidationException.class
 com\catnix\beans\TenderToAssign.class
 com\catnix\dao\TenderDao.class
 com\catnix\servlets\PositionOnTender.class

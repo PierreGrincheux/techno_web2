@@ -14,7 +14,7 @@
     </head>
     <body>
         <fieldset>
-            <p><a href="<c:url value="/index"/>">Index</a></p>
+            <p><a href="<c:url value="/index"/>">Index Coucou à tous</a></p>
             <p><a href="<c:url value="/disconnection"/>">Sign out</a></p>
         </fieldset>
          <br/>

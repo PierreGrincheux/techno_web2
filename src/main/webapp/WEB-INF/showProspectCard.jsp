@@ -13,19 +13,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><c:out value="${sessionScope.prospect.company_name}" /></h1>
+        <c:set var = "prospect" scope = "session" value = "${sessionScope.prospect}"/>
+        
+        <h1><c:out value="${prospect.company_name}" /></h1>
         <div>
             <h2>informations nécéssaires pour contacter le prospect</h2>
             <p>
-                Secteur d'activité : <c:out value="${sessionScope.prospect.company_name}" /> <br>
-                Site internet : <c:out value="${sessionScope.prospect.company_name}" /> <br>
-                N° de téléphone : <c:out value="${sessionScope.prospect.company_name}" /> <br>
-                Adresse email : <c:out value="${sessionScope.prospect.company_name}" /> <br>
-                Contact : <c:out value="${sessionScope.prospect.company_name}" /> <br>
-                
+                Secteur d'activité : <c:out value="${sessionScope.prospect.activity_area}" /> <br>
+                Site internet : <c:out value="${sessionScope.prospect.website}" /> <br>
+                N° de téléphone : <c:out value="${sessionScope.prospect.phone_number1}" /> <br>
+                Adresse email : <c:out value="${sessionScope.prospect.email}" /> <br>
+                Contact : <c:out value="${sessionScope.prospect.contact_name}" /> <br>
+
             </p>
         </div>
-        
+
 
     </body>
 </html>

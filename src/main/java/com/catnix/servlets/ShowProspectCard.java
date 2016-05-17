@@ -42,6 +42,7 @@ public class ShowProspectCard extends HttpServlet {
             Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
         }
         session.setAttribute(SESSION_PROSPECT_ATT, prospect);     
+        
         this.getServletContext().getRequestDispatcher(VIEW_SHOW_PROSPECT_CARD).forward(request, response);
 
     }

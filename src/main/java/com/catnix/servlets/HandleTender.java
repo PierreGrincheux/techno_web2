@@ -9,9 +9,7 @@ import com.catnix.beans.Tender;
 import com.catnix.dao.DAOFactory;
 import com.catnix.dao.TenderDao;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,12 +40,11 @@ public class HandleTender extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        
         List<Tender> tenders = tenderDao.listTenderToHandle();
-        Map<Long, Tender> mapTenders = new HashMap<>();
-        for (Tender tender : tenders) {
-            mapTenders.put(tender.getId(), tender);
-        }
+        
         session.setAttribute(SESSION_TENDERS_ATT, tenders);
+        
         this.getServletContext().getRequestDispatcher(HANDLE_TENDER_VIEW).forward(request, response);
     }
 

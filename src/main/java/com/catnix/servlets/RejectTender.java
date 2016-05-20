@@ -63,7 +63,7 @@ public class RejectTender extends HttpServlet {
 
             tenders.remove(id);
         } catch (DAOException e) {
-            
+
             e.getMessage();
         }
 

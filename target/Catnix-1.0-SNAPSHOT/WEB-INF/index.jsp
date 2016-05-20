@@ -25,9 +25,9 @@
 
             <c:if test="${member.role == 'RC'}">
 
+                <p><a href="<c:url value="/addProspect"/>">Add prospects</a></p>
                 <p><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
                 <p><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
-                <p><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
 
             </c:if>    
             <c:if test="${member.role == 'CP'}">

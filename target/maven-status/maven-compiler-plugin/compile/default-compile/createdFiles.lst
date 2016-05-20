@@ -12,7 +12,6 @@ com\catnix\servlets\ShowProspect.class
 com\catnix\servlets\AssignCpToTender.class
 com\catnix\methods\Methods.class
 com\catnix\servlets\ShowProspectCard.class
-.netbeans_automatic_build
 com\catnix\dao\DAOFactory.class
 com\catnix\servlets\ConsultTendersToAssign.class
 com\catnix\servlets\Index.class
@@ -28,11 +27,15 @@ com\catnix\dao\DAOUtilitaire.class
 com\catnix\dao\MemberDaoImpl.class
 com\catnix\beans\Tender.class
 com\catnix\servlets\AddTender.class
+com\catnix\beans\Comment.class
 com\catnix\servlets\Disconnection.class
 com\catnix\beans\Prospect.class
 com\catnix\dao\ProspectDao.class
 com\catnix\beans\TenderToAssign.class
+com\catnix\dao\CommentDaoImpl.class
 com\catnix\dao\TenderDao.class
+com\catnix\dao\CommentDao.class
 com\catnix\servlets\AddProspect.class
+com\catnix\forms\CommentForm.class
 com\catnix\servlets\PositionOnTender.class
 com\catnix\servlets\RejectTender.class

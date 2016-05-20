@@ -16,6 +16,16 @@ legend {
 }
 
 /* Forms --------------------------------------------------------------------------------------- */
+.container{
+    margin-left:auto;
+    margin-right:auto;
+    padding: 15px;
+}
+.form-signin{
+    max-width:300px;
+    padding: 15px;
+    margin : 0 auto;
+}
 
 form label {
     float: left;

@@ -18,37 +18,32 @@
             <legend>Ajouter un nouveau prospect</legend>
 
             <form action = "addProspect" method="post">
-                <label for="title">Nom de l'entreprise : <span class="required">*</span></label>
+                <label for="company_name">Nom de l'entreprise : <span class="required">*</span></label>
                 <input type="text" id="company_name" name="company_name"/>  
                 <span class="error">${formprospect.errors['company_name']}</span><br/>
                 <br/> 
 
-                <label for="activityArea">Secteur d'activité : <span class="required">*</span></label>
+                <label for="activity_area">Secteur d'activité : <span class="required">*</span></label>
                 <input type="text" id="activity_area" name="activity_area"/>
                 <span class="error">${formprospect.errors['activity_area']}</span><br/>
                  <br /> 
                 
-                <label for="activityArea">Adresse du site internet : </label>
+                <label for="website">Adresse du site internet : </label>
                 <input type="text" id="website" name="website"/>
                 <span class="error">${formprospect.errors['website']}</span><br/>
                  <br /> 
                 
-                <label for="activityArea">Numéro de téléphone 1  : <span class="required">*</span></label>
-                <input type="text" id="phone_number1" name="phone_number1"/> 
-                <span class="error">${formprospect.errors['phone_number1']}</span><br/>
+                <label for="phone_number">Numéro de téléphone : <span class="required">*</span></label>
+                <input type="text" id="phone_number" name="phone_number"/> 
+                <span class="error">${formprospect.errors['phone_number']}</span><br/>
                  <br />                
-                
-                <label for="activityArea">Numéro de téléphone 2 : </label>
-                <input type="text" id="phone_number2" name="phone_number2"/>
-                <span class="error">${formprospect.errors['phone_number2']}</span><br/>
-                 <br />                
-                
-                <label for="activityArea"> Adresse email : </label>
+                          
+                <label for="email"> Adresse email : </label>
                 <input type="text" id="email" name="email"/> 
                 <span class="error">${formprospect.errors['email']}</span><br/>
                  <br />                
                 
-                <label for="activityArea">Nom du contact : </label>
+                <label for="contact_name">Nom du contact : </label>
                 <input type="text" id="contact_name" name="contact_name"/> 
                 <span class="error">${formprospect.errors['contact_name']}</span><br/>
                  <br />                

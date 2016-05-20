@@ -17,6 +17,10 @@ legend {
 
 /* Forms --------------------------------------------------------------------------------------- */
 
+.form-signin{
+    max-width:330px;
+}
+
 form label {
     float: left;
     width: 200px;

@@ -12,6 +12,7 @@ com\catnix\servlets\ShowProspect.class
 com\catnix\servlets\AssignCpToTender.class
 com\catnix\methods\Methods.class
 com\catnix\servlets\ShowProspectCard.class
+.netbeans_automatic_build
 com\catnix\dao\DAOFactory.class
 com\catnix\servlets\ConsultTendersToAssign.class
 com\catnix\servlets\Index.class

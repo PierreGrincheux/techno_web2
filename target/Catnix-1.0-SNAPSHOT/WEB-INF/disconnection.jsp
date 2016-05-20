@@ -10,16 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Disconnection</title>
+        <title>Déconnexion</title>
         <link type="text/css" rel="stylesheet"  href="<c:url value="/inc/form.css"/>" />
     </head>
     <body>
-        <h1>Disconnection Page</h1>
+        <h1>Déconnexion</h1>
 
         <c:import url="/inc/menu.jsp" />
 
         <form action="disconnection" method="post">
-            <input type="submit" value="Logout" class="btn" />
+            <input type="submit" value="Se déconnecter" class="btn" />
         </form>
 
     </body>

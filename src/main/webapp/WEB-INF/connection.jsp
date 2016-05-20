@@ -24,7 +24,7 @@
                 <input type="password"class ="form-control"placeholder="Password" id="password" name="password" value="" size="20" maxlength="20" />
                 <span class="error">${form.errors['password']}</span><br/>
 
-                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" class="sansLabel" />
+                <input class="btn btn-lg btn-default btn-block" type="submit" value="Login" class="sansLabel" />
 
 
                 <p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>

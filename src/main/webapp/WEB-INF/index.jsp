@@ -19,23 +19,25 @@
 
         <c:import url="/inc/menu.jsp" />
 
+        <div class="container">
         <fieldset>
-            <p><a href="<c:url value="/addTender"/>">Add a tender</a></p>
+            <p><span class="glyphicon glyphicon-plus"></span><a href="<c:url value="/addTender"/>">Add a tender</a></p>
 
 
             <c:if test="${member.role == 'RC'}">
 
-                <p><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
-                <p><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
-                <p><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
+                <p><span class="glyphicon glyphicon-list-alt"></span><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
+                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
 
             </c:if>    
             <c:if test="${member.role == 'CP'}">
-                <p><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
-                <p><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
-                <p><a href="<c:url value="/ShowProspect"/>">Consult prospects - coucou</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>">Consult prospects - coucou</a></p>
             </c:if>
 
         </fieldset>
+        </div>
     </body>
 </html>

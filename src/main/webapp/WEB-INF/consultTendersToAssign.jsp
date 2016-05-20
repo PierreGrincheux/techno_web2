@@ -17,8 +17,11 @@
 
         <c:import url="/inc/menu.jsp" />
 
-        <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <caption> Tender to Assign List </caption> 
+        <div class="container">
+        <h2> Tender to Assign List </h2>
+        <!--<table border="1" cellpadding="10" cellspacing="1" width="100%">--> 
+        <table class="table table-striped table-bordered">
+            <thead>
             <tr> 
                 <th> Title </th> 
                 <th> Motivation Text </th> 
@@ -26,19 +29,23 @@
                 <th> Date </th> 
                 <th> Action </th> 
             </tr> 
+            </thead>
+            <tbody>
             <c:forEach items="${ sessionScope.tendersToAssign }" var="tenderToAssign" >
                 <tr> 
-                    <th> <c:out value="${tenderToAssign.title}" />  </th> 
-                    <th>  <c:out value="${tenderToAssign.motivationText}" /> </th> 
-                    <th>  <c:out value="${tenderToAssign.nameCP}" /> </th> 
-                    <th>  <c:out value="${tenderToAssign.date}" /> </th> 
-                    <th> <a href="<c:url value="/assignCpToTender">
+                    <td> <c:out value="${tenderToAssign.title}" />  </td> 
+                    <td>  <c:out value="${tenderToAssign.motivationText}" /> </td> 
+                    <td>  <c:out value="${tenderToAssign.nameCP}" /> </td> 
+                    <td>  <c:out value="${tenderToAssign.date}" /> </td> 
+                    <td> <a href="<c:url value="/assignCpToTender">
                                 <c:param name="idTenderToAssign" value="${ tenderToAssign.id }" />
                                 <c:param name="idTender" value="${ tenderToAssign.id_tender }" />
                                 <c:param name="nameCp" value="${ tenderToAssign.nameCP }" />
-                            </c:url>"> Assign </a> </th> 
+                            </c:url>"> Assign </a> </td> 
                 </tr> 
             </c:forEach>
+            </tbody>
         </table>
+    </div>
     </body>
 </html>

@@ -18,9 +18,8 @@
 
         <c:import url="/inc/menu.jsp" />
 
-
         <form action="disconnection" method="post">
-            <input type="submit" value="Logout" />
+            <input type="submit" value="Logout" class="btn" />
         </form>
 
     </body>

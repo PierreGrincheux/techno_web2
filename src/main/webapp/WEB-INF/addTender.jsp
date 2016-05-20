@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Add Tender Page</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet"  href="<c:url value="inc/form.css" />" />
     </head>
     <body>
@@ -18,10 +18,13 @@
         <c:import url="/inc/menu.jsp" />
 
         <div class ="container">
-            <form action = "addTender" method="post" class="form-horizontal" role=form">
+            
+            <h1> Ajouter un appel d'offre </h1>
+            </br>
+            
+            <form action = "addTender" method="post" class="form-horizontal"/>
 
                 
-                    <legend>Form Tender</legend>
                     <div class="form-group">
                         <label for="title" class="control-label col-sm-2">Title :  <span class="required">*</span></label>
                      
@@ -85,7 +88,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-2">
-                             <input type="submit" id="submit" name="submit" value="submit" class="btn btn-default btn-md" /> 
+                             <input type="submit" id="submit" name="submit" value="Ajouter" class="btn btn-default btn-md" /> 
 
                               <p class="${empty formTender.errors ? 'success' : 'error'}">${formTender.result}</p>
                         <div>

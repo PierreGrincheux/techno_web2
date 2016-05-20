@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -105,37 +103,41 @@ public class ProspectForm {
         String state = getFieldValue(request, STATE_FIELD);
         Date callback_date = getDateFieldValue(request, CALLBACK_DATE_FIELD);
 
-        if (null != state) switch (state) {
-            case "Non interessé":
-                prospectDao.delete(prospectid);
-                break;
-            case "Rendez-vous pris":
-                //            créer un client
-                prospectDao.delete(prospectid);
-                break;
-            case "A rappeler":
-            case "Echec de l'appel":
-                try {
-                    IsNullFieldValidation(activity_area);
-                } catch (Exception e) {
-                    setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
-                }   prospect.setActivity_area(activity_area);
-                prospect.setWebsite(website);
-                try {
-                    IsNullFieldValidation(phone_number);
-                    LenghtFieldValidation(phone_number, 25);
-                } catch (Exception e) {
-                    setErreur(PHONE_NUMBER_FIELD, e.getMessage());
-                }   prospect.setPhone_number(phone_number);
-                prospect.setEmail(email);
-                prospect.setContact_name(contact_name);
-                prospect.setState(state);
-                
-                prospect.setCallback_date(callback_date);
-                prospectDao.update(prospect);
-                break;
-            default:
-                break;
+        if (null != state) {
+            switch (state) {
+                case "Non interessé":
+                    prospectDao.delete(prospectid);
+                    break;
+                case "Rendez-vous pris":
+                    //            créer un client
+                    prospectDao.delete(prospectid);
+                    break;
+                case "A rappeler":
+                case "Echec de l'appel":
+                    try {
+                        IsNullFieldValidation(activity_area);
+                    } catch (Exception e) {
+                        setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
+                    }
+                    prospect.setActivity_area(activity_area);
+                    prospect.setWebsite(website);
+                    try {
+                        IsNullFieldValidation(phone_number);
+                        LenghtFieldValidation(phone_number, 25);
+                    } catch (Exception e) {
+                        setErreur(PHONE_NUMBER_FIELD, e.getMessage());
+                    }
+                    prospect.setPhone_number(phone_number);
+                    prospect.setEmail(email);
+                    prospect.setContact_name(contact_name);
+                    prospect.setState(state);
+
+                    prospect.setCallback_date(callback_date);
+                    prospectDao.update(prospect);
+                    break;
+                default:
+                    break;
+            }
         }
 
         return prospect;

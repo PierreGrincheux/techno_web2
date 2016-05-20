@@ -10,15 +10,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tender List</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet" href="<c:url value ="inc/form.css" />" />
     </head>
     <body>
 
         <c:import url="/inc/menu.jsp" />
 
+        <h1> Liste des appels d'offre à valider </h1>
+        <br/>
+
         <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <caption> Tender List </caption> 
             <tr> 
                 <th> Title </th> 
                 <th> Activity Area </th> 

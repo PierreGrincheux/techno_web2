@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Prospect card</title>
+        <title>Catnix</title>
     </head>
     <body>
         <c:set var="prospect" scope="session" value="${sessionScope.prospect}" />

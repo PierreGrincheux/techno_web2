@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Show prospects</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet"  href="inc/table.css">
     </head>
     <body>
@@ -28,7 +28,7 @@
                     <td> <c:out value="${prospect.activity_area}" /></td>
                     <td> <c:out value="${prospect.state}" /></td>
                     <td><a href="<c:url value="/ShowProspectCard"><c:param name="prospectid" value="${ prospect.id }" /></c:url>"> appeler</a> </td> 
-                </tr>
+                    </tr>
             </c:forEach>
         </table> 
     </body>

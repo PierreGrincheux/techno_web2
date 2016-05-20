@@ -17,9 +17,10 @@
 
 
         <c:import url="/inc/menu.jsp" />
-
-        <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <caption> Tender List </caption> 
+        <div class="container">
+            <h2> Tender List </h2> 
+        <table class="table table-bordered table-striped"> 
+            <thead>
             <tr> 
                 <th> Title </th> 
                 <th> Activity Area </th> 
@@ -29,19 +30,23 @@
                 <th> Origin </th> 
                 <th> Action </th> 
             </tr> 
+            </thead>
+            <tbody>
             <c:forEach items="${ sessionScope.tenders }" var="tender" >
 
                 <tr> 
-                    <th> <c:out value="${tender.title}" />  </th> 
-                    <th>  <c:out value="${tender.activityArea}" /> </th> 
-                    <th>  <c:out value="${tender.contactName}" /> </th> 
-                    <th>  <c:out value="${tender.contactPhone}" /> </th> 
-                    <th>  <c:out value="${tender.contactEmail}" /> </th> 
-                    <th>  <c:out value="${tender.origin}" /> </th> 
-                    <th><a href="<c:url value="/positionOnTender"><c:param name="idTender" value="${ tender.id }" /><c:param name="title" value="${tender.title}"/></c:url>"> Position </a> </th> 
-                    </tr> 
+                    <td> <c:out value="${tender.title}" />  </td> 
+                    <td>  <c:out value="${tender.activityArea}" /> </td> 
+                    <td>  <c:out value="${tender.contactName}" /> </td> 
+                    <td>  <c:out value="${tender.contactPhone}" /> </td> 
+                    <td>  <c:out value="${tender.contactEmail}" /> </td> 
+                    <td>  <c:out value="${tender.origin}" /> </td> 
+                    <td><a href="<c:url value="/positionOnTender"><c:param name="idTender" value="${ tender.id }" /><c:param name="title" value="${tender.title}"/></c:url>"> Position </a> </th> 
+                    </td> 
 
             </c:forEach>
+            </tbody>
         </table>
+        </div>
     </body>
 </html>

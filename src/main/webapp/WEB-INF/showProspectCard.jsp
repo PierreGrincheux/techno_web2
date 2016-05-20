@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : showProspectCard
     Created on : 27 avr. 2016, 19:58:52
@@ -15,7 +16,7 @@
     <body>
         <c:set var="prospect" scope="session" value="${sessionScope.prospect}" />
         <h1><c:out value="${prospect.company_name}" /></h1>
-        
+
         <form action = "ShowProspectCard" method="post">
             <div>
                 <h2>Informations </h2>
@@ -43,24 +44,24 @@
                     <p><c:out value="${comment.date}" /></p>
                     <p><c:out value="${comment.content}" /></p>                    
                 </c:forEach>
-                    <label for="comment">Ajouter un commentaire </label>
-                    <input type="text" id="comment" name="comment"/>  
-                    <br/>    
-                    <label for="state">Résultat de l'appel <span class="required">*</span></label>
-                    <select form="updateProspect" name="state" id="state"> 
-                        <!--form ne fonctionne pas sur IE-->
-                        <option value="success">Rendez-vous pris</option>
-                        <option value="to_callback">A rappeler</option>
-                        <option value="voice_mail">Echec de l'appel</option>
-                        <option value="not_interested">Non interessé (le prospect sera supprimé) </option>
-                    </select>
-                     <br /> 
-                    <!--mettre une fonction javascript pour voir l'input inuquement quand la valeur de la liste est "a rappeler"-->
-                    <label for="callback_date">Date de rappel  </label>
-                    <input type="date" id="callback_date" name="callback_date"/>
-                     <br /> 
+                <label for="comment">Ajouter un commentaire </label>
+                <input type="text" id="comment" name="comment"/>  
+                <br/>    
+                <label for="state">Résultat de l'appel <span class="required">*</span></label>
+                <br>
+                <input type="radio" name="state" value="Rendez-vous pris"> Rendez-vous pris<br>
+                <input type="radio" name="state" value="A rappeler"> A rappeler<br>
+                <input type="radio" name="state" value="Echec de l'appel"> Echec de l'appel<br>
+                <input type="radio" name="state" value="Non interessé"> Non interessé (le prospect sera supprimé)<br>
+                
+                <!--mettre une fonction javascript pour voir l'input inuquement quand la valeur est "a rappeler"-->
+                <label for="callback_date">Date de rappel  </label>
+                <input type="date" id="callback_date" name="callback_date"/>
+                <input type="hidden" id="prospectid" name="prospectid" value="<c:out value='${prospect.id}'/>"/>
+                <br /> 
+                <input type="submit" id="submit" name="submit" value="sauvegarder les modifications" />
+                </a>
 
-                    <input type="submit" id="submit" name="submit" value="sauvegarder les modifications" /> 
             </div>
         </form>
         <div>

@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ProspectForm {
 
-    private static final String PROSPECT_ID = "propect_id";
+    private static final String PROSPECT_ID = "prospectid";
     private static final String COMPANY_NAME_FIELD = "company_name";
     private static final String ACTIVITY_AREA_FIELD = "activity_area";
     private static final String WEBSITE_FIELD = "website";
@@ -50,6 +50,7 @@ public class ProspectForm {
 
     public Prospect addProspect(HttpServletRequest request) throws SQLException, Exception {
 
+        request.setCharacterEncoding("UTF-8");
         String company_name = getFieldValue(request, COMPANY_NAME_FIELD);
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
@@ -96,6 +97,7 @@ public class ProspectForm {
     }
 
     public Prospect updateProspect(HttpServletRequest request) throws SQLException, Exception {
+        request.setCharacterEncoding("UTF-8");
         long prospectid = Long.parseLong(getFieldValue(request, PROSPECT_ID));
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
@@ -105,37 +107,42 @@ public class ProspectForm {
         String state = getFieldValue(request, STATE_FIELD);
         Date callback_date = getDateFieldValue(request, CALLBACK_DATE_FIELD);
 
-        if (null != state) switch (state) {
-            case "Non interessé":
-                prospectDao.delete(prospectid);
-                break;
-            case "Rendez-vous pris":
-                //            créer un client
-                prospectDao.delete(prospectid);
-                break;
-            case "A rappeler":
-            case "Echec de l'appel":
-                try {
-                    IsNullFieldValidation(activity_area);
-                } catch (Exception e) {
-                    setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
-                }   prospect.setActivity_area(activity_area);
-                prospect.setWebsite(website);
-                try {
-                    IsNullFieldValidation(phone_number);
-                    LenghtFieldValidation(phone_number, 25);
-                } catch (Exception e) {
-                    setErreur(PHONE_NUMBER_FIELD, e.getMessage());
-                }   prospect.setPhone_number(phone_number);
-                prospect.setEmail(email);
-                prospect.setContact_name(contact_name);
-                prospect.setState(state);
-                
-                prospect.setCallback_date(callback_date);
-                prospectDao.update(prospect);
-                break;
-            default:
-                break;
+        if (null != state) {
+            switch (state) {
+                case "Non interessé":
+                    
+                    prospectDao.delete(prospectid);
+                    break;
+                case "Rendez-vous pris":
+                    //            créer un client
+                    prospectDao.delete(prospectid);
+                    break;
+                case "A rappeler":
+                case "Echec de l'appel":
+                    try {
+                        IsNullFieldValidation(activity_area);
+                    } catch (Exception e) {
+                        setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
+                    }
+                    prospect.setActivity_area(activity_area);
+                    prospect.setWebsite(website);
+                    try {
+                        IsNullFieldValidation(phone_number);
+                        LenghtFieldValidation(phone_number, 25);
+                    } catch (Exception e) {
+                        setErreur(PHONE_NUMBER_FIELD, e.getMessage());
+                    }
+                    prospect.setPhone_number(phone_number);
+                    prospect.setEmail(email);
+                    prospect.setContact_name(contact_name);
+                    prospect.setState(state);
+
+                    prospect.setCallback_date(callback_date);
+                    prospectDao.update(prospect);
+                    break;
+                default:
+                    break;
+            }
         }
 
         return prospect;

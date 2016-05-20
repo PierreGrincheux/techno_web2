@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.catnix.forms;
 
 import com.catnix.beans.Prospect;
 import com.catnix.dao.ProspectDao;
 import com.catnix.dao.ProspectDaoImpl;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -19,13 +19,15 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ProspectForm {
 
+    private static final String PROSPECT_ID = "propect_id";
     private static final String COMPANY_NAME_FIELD = "company_name";
     private static final String ACTIVITY_AREA_FIELD = "activity_area";
     private static final String WEBSITE_FIELD = "website";
-    private static final String PHONE_NUMBER1_FIELD = "phone_number1";
-    private static final String PHONE_NUMBER2_FIELD = "phone_number2";
+    private static final String PHONE_NUMBER_FIELD = "phone_number";
     private static final String EMAIL_FIELD = "email";
     private static final String CONTACT_NAME_FIELD = "contact_name";
+    private static final String STATE_FIELD = "state";
+    private static final String CALLBACK_DATE_FIELD = "callback_date";
 
     private String result;
     private Map<String, String> errors = new HashMap<>();
@@ -51,8 +53,7 @@ public class ProspectForm {
         String company_name = getFieldValue(request, COMPANY_NAME_FIELD);
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
-        String phone_number1 = getFieldValue(request, PHONE_NUMBER1_FIELD);
-        String phone_number2 = getFieldValue(request, PHONE_NUMBER2_FIELD);
+        String phone_number = getFieldValue(request, PHONE_NUMBER_FIELD);
         String email = getFieldValue(request, EMAIL_FIELD);
         String contact_name = getFieldValue(request, CONTACT_NAME_FIELD);
 
@@ -72,25 +73,69 @@ public class ProspectForm {
         prospect.setWebsite(website);
 
         try {
-            IsNullFieldValidation(phone_number1);
-            LenghtFieldValidation(phone_number1, 15);
+            IsNullFieldValidation(phone_number);
+            LenghtFieldValidation(phone_number, 15);
         } catch (Exception e) {
-            setErreur(PHONE_NUMBER1_FIELD, e.getMessage());
+            setErreur(PHONE_NUMBER_FIELD, e.getMessage());
         }
-        prospect.setPhone_number1(phone_number1);
-        prospect.setPhone_number2(phone_number2);
+        prospect.setPhone_number(phone_number);
         prospect.setEmail(email);
         prospect.setContact_name(contact_name);
 
         prospect.setState("new");
-        prospect.setCp_id(null);
         prospect.setCallback_date(null);
 
         if (errors.isEmpty()) {
             prospectDao.create(prospect);
-            result = "Prospect " +company_name + " has been added to the database";
+            result = "Prospect " + company_name + " has been added to the database";
         } else {
             result = "Adding failed !";
+        }
+
+        return prospect;
+    }
+
+    public Prospect updateProspect(HttpServletRequest request) throws SQLException, Exception {
+        long prospectid = Long.parseLong(getFieldValue(request, PROSPECT_ID));
+        String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
+        String website = getFieldValue(request, WEBSITE_FIELD);
+        String phone_number = getFieldValue(request, PHONE_NUMBER_FIELD);
+        String email = getFieldValue(request, EMAIL_FIELD);
+        String contact_name = getFieldValue(request, CONTACT_NAME_FIELD);
+        String state = getFieldValue(request, STATE_FIELD);
+        Date callback_date = getDateFieldValue(request, CALLBACK_DATE_FIELD);
+
+        if (null != state) switch (state) {
+            case "Non interessé":
+                prospectDao.delete(prospectid);
+                break;
+            case "Rendez-vous pris":
+                //            créer un client
+                prospectDao.delete(prospectid);
+                break;
+            case "A rappeler":
+            case "Echec de l'appel":
+                try {
+                    IsNullFieldValidation(activity_area);
+                } catch (Exception e) {
+                    setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
+                }   prospect.setActivity_area(activity_area);
+                prospect.setWebsite(website);
+                try {
+                    IsNullFieldValidation(phone_number);
+                    LenghtFieldValidation(phone_number, 25);
+                } catch (Exception e) {
+                    setErreur(PHONE_NUMBER_FIELD, e.getMessage());
+                }   prospect.setPhone_number(phone_number);
+                prospect.setEmail(email);
+                prospect.setContact_name(contact_name);
+                prospect.setState(state);
+                
+                prospect.setCallback_date(callback_date);
+                prospectDao.update(prospect);
+                break;
+            default:
+                break;
         }
 
         return prospect;
@@ -121,4 +166,17 @@ public class ProspectForm {
             return value;
         }
     }
+
+    public Date getDateFieldValue(HttpServletRequest request, String fieldName) throws ParseException {
+        String value = request.getParameter(fieldName);
+        if (value == null || value.trim().length() == 0) {
+            return null;
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date callback_date = sdf.parse(value);
+            return callback_date;
+        }
+
+    }
+
 }

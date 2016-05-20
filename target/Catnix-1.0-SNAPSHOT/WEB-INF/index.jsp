@@ -35,6 +35,7 @@
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>">Consult prospects - coucou</a></p>
+
             </c:if>
 
         </fieldset>

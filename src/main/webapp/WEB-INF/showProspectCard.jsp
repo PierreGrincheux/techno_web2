@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Prospect card</title>
+        <title>Prospect card</title> 
     </head>
     <body>
         <c:set var="prospect" scope="session" value="${sessionScope.prospect}" />
@@ -22,13 +22,16 @@
                 <h2>Informations </h2>
                 <label for="activity_area"> Secteur d'activité</label>
                 <input type="text" id="activity_area" name="activity_area" value="<c:out value='${prospect.activity_area}' />" /><br>
-
+                <span class="error">${formprospect.errors['activity_area']}</span><br>
+                
                 <label for="website"> Site internet </label>
                 <input type="text" id="website" name="website" value="<c:out value='${prospect.website}' />" /><br>
-
+                
+                
                 <label for="phone_number"> N° de téléphone </label>
                 <input type="text" id="phone_number" name="phone_number" value="<c:out value='${prospect.phone_number}' />" /><br>
-
+                 <span class="error">${formprospect.errors['phone_number']}</span><br>
+                
                 <label for="email"> Adresse email </label>
                 <input type="text" id="email" name="email" value="<c:out value='${prospect.email}' />" /><br>
 
@@ -58,7 +61,7 @@
                 <label for="callback_date">Date de rappel  </label>
                 <input type="date" id="callback_date" name="callback_date"/>
                 <input type="hidden" id="prospectid" name="prospectid" value="<c:out value='${prospect.id}'/>"/>
-                <br /> 
+                <br/> 
                 <input type="submit" id="submit" name="submit" value="sauvegarder les modifications" />
                 </a>
 
@@ -67,6 +70,7 @@
         <div>
             <button>Envoyer une plaquette</button>
         </div>
+        
 
     </body>
 </html>

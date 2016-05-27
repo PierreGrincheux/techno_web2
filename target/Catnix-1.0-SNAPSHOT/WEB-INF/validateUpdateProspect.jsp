@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>prospectipated</h1>
+        <p class="${empty formprospect.errors ? 'success' : 'error'}">${formprospect.result}</p>
     </body>
 </html>

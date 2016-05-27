@@ -25,9 +25,11 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ShowProspectCard", urlPatterns = {"/ShowProspectCard"})
 public class ShowProspectCard extends HttpServlet {
     public static final String VIEW_SHOW_PROSPECT_CARD = "/WEB-INF/showProspectCard.jsp";
+    public static final String VIEW_SHOW_PROSPECT_UPDATE = "/WEB-INF/validateUpdateProspect.jsp";
     public static final String SESSION_PROSPECT_ATT = "prospect";  
     public static final String SESSION_COMMENTS_ATT = "allcomments";
-    public static final String VIEW_UPDATED = "/WEB-INF/validateUpdateProspect.jsp";
+    public static final String ATT_FORM_PROSPECT = "formprospect";
+
 
     
     @Override
@@ -72,16 +74,11 @@ public class ShowProspectCard extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
         }
- 
-    
+         
+        request.setAttribute(ATT_FORM_PROSPECT, prospectForm);
         session.setAttribute(SESSION_PROSPECT_ATT, prospect);  
-        this.getServletContext().getRequestDispatcher(VIEW_UPDATED).forward(request, response);
+        response.sendRedirect("/catnix/ShowProspectCard?prospectid=" + prospect.getId());
         
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

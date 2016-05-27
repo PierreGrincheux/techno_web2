@@ -28,13 +28,13 @@
 
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
                 <p><span class="glyphicon glyphicon-list-alt"></span><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
-                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
+                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/addProspect"/>">Add prospects</a></p>
 
             </c:if>    
             <c:if test="${member.role == 'CP'}">
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
-                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>">Consult prospects - coucou</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>">Consult prospects</a></p>
 
             </c:if>
 

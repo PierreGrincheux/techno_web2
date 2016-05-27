@@ -108,40 +108,39 @@ public class ProspectForm {
         Date callback_date = getDateFieldValue(request, CALLBACK_DATE_FIELD);
 
         if (null != state) {
-            switch (state) {
-                case "Non interessé":
-                    
-                    prospectDao.delete(prospectid);
-                    break;
-                case "Rendez-vous pris":
-                    //            créer un client
-                    prospectDao.delete(prospectid);
-                    break;
-                case "A rappeler":
-                case "Echec de l'appel":
-                    try {
-                        IsNullFieldValidation(activity_area);
-                    } catch (Exception e) {
-                        setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
-                    }
-                    prospect.setActivity_area(activity_area);
-                    prospect.setWebsite(website);
-                    try {
-                        IsNullFieldValidation(phone_number);
-                        LenghtFieldValidation(phone_number, 25);
-                    } catch (Exception e) {
-                        setErreur(PHONE_NUMBER_FIELD, e.getMessage());
-                    }
-                    prospect.setPhone_number(phone_number);
-                    prospect.setEmail(email);
-                    prospect.setContact_name(contact_name);
-                    prospect.setState(state);
+            if ("Non interessé".equals(state)) {
+                prospectDao.delete(prospectid);
+                if (errors.isEmpty()) {
+                    result = "Prospect has been successfully deleted";
+                } else {
+                    result = "delete failed !";
+                }
+            } else if ("Rendez-vous pris".equals(state) || "A rappeler".equals(state) || "Echec de l'appel".equals(state)) {
+                try {
+                    IsNullFieldValidation(activity_area);
+                } catch (Exception e) {
+                    setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
+                }
+                prospect.setActivity_area(activity_area);
+                prospect.setWebsite(website);
+                try {
+                    IsNullFieldValidation(phone_number);
+                    LenghtFieldValidation(phone_number, 25);
+                } catch (Exception e) {
+                    setErreur(PHONE_NUMBER_FIELD, e.getMessage());
+                }
+                prospect.setPhone_number(phone_number);
+                prospect.setEmail(email);
+                prospect.setContact_name(contact_name);
+                prospect.setState(state);
+                prospect.setCallback_date(callback_date);
+                prospectDao.update(prospect);
 
-                    prospect.setCallback_date(callback_date);
-                    prospectDao.update(prospect);
-                    break;
-                default:
-                    break;
+                if (errors.isEmpty()) {
+                    result = "Prospect has been updated to the database";
+                } else {
+                    result = "update failed !";
+                }
             }
         }
 

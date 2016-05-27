@@ -50,9 +50,5 @@ public class AddProspect extends HttpServlet {
        
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
 
 }

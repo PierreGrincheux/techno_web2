@@ -29,6 +29,7 @@
                 <input class="btn btn-lg btn-primary btn-block" type="submit" value="Se connecter"/>
 
 
+
                 <p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
 
             </form>

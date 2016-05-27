@@ -30,19 +30,23 @@
                 <th> Origin </th> 
                 <th> Take </th> 
                 <th> Reject </th> 
-            </tr> 
+            </tr>
+       </thead>
+       <tbody>
             <c:forEach items="${ sessionScope.tenders }" var="tender" >
                 <tr> 
-                    <th> <c:out value="${tender.title}" />  </th> 
-                    <th>  <c:out value="${tender.activityArea}" /> </th> 
-                    <th>  <c:out value="${tender.contactName}" /> </th> 
-                    <th>  <c:out value="${tender.contactPhone}" /> </th> 
-                    <th>  <c:out value="${tender.contactEmail}" /> </th> 
-                    <th>  <c:out value="${tender.origin}" /> </th> 
-                    <th> <a href="<c:url value="/acceptTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Accept </a> </th>
-                    <th> <a href="<c:url value="/rejectTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Reject </a> </th> 
+                    <td> <c:out value="${tender.title}" />  </td> 
+                    <td>  <c:out value="${tender.activityArea}" /> </td> 
+                    <td>  <c:out value="${tender.contactName}" /> </td> 
+                    <td>  <c:out value="${tender.contactPhone}" /> </td> 
+                    <td>  <c:out value="${tender.contactEmail}" /> </td> 
+                    <td>  <c:out value="${tender.origin}" /> </th> 
+                    <td> <a href="<c:url value="/acceptTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Accept </a> </th>
+                    <td> <a href="<c:url value="/rejectTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Reject </a> </th> 
                     </tr> 
             </c:forEach>
+       </tbody>
         </table>
+       </div>
     </body>
 </html>

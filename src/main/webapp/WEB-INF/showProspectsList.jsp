@@ -14,22 +14,33 @@
         <link type="text/css" rel="stylesheet"  href="inc/table.css">
     </head>
     <body>
-        <h1>Liste des prospects</h1>
-        <table class="showprospectstable">
-            <tr>
-                <td>Nom de l'entreprise</td>
-                <td>Secteur d'activité</td>
-                <td>Etat</td>
-                <td>Action</td>
-            </tr>
+        
+        <c:import url="/inc/menu.jsp" />
+        
+        <div class="container">
+        <h2>Liste des prospects</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr> 
+                    <th> Nom de l'entreprise </th> 
+                    <th> Secteur d'activité </th> 
+                    <th> Etat </th> 
+                    <th> Action </th> 
+                </tr> 
+            </thead>
+            <tbody>
             <c:forEach items="${sessionScope.prospects}" var="prospect">
-                <tr>
-                    <td> <c:out value="${prospect.company_name}" /></td>
-                    <td> <c:out value="${prospect.activity_area}" /></td>
-                    <td> <c:out value="${prospect.state}" /></td>
-                    <td><a href="<c:url value="/ShowProspectCard"><c:param name="prospectid" value="${ prospect.id }" /></c:url>"> appeler</a> </td> 
-                    </tr>
+                <tr> 
+                    <td> <c:out value="${prospect.company_name}" />  </td> 
+                    <td>  <c:out value="${prospect.activity_area}" /> </td> 
+                    <td>  <c:out value="${prospect.state}" /> </td> 
+                    <td> <a href="<c:url value="/ShowProspectCard">
+                                <c:param name="prospectid" value="${ prospect.id }" />
+                            </c:url>"> Appeler </a> </td> 
+                </tr> 
             </c:forEach>
-        </table> 
+            </tbody>
+            </table> 
+        </div>
     </body>
 </html>

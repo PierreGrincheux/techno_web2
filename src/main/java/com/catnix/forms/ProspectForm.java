@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ProspectForm {
 
-    private static final String PROSPECT_ID = "propect_id";
+    private static final String PROSPECT_ID = "prospectid";
     private static final String COMPANY_NAME_FIELD = "company_name";
     private static final String ACTIVITY_AREA_FIELD = "activity_area";
     private static final String WEBSITE_FIELD = "website";
@@ -48,6 +48,7 @@ public class ProspectForm {
 
     public Prospect addProspect(HttpServletRequest request) throws SQLException, Exception {
 
+        request.setCharacterEncoding("UTF-8");
         String company_name = getFieldValue(request, COMPANY_NAME_FIELD);
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
@@ -94,6 +95,7 @@ public class ProspectForm {
     }
 
     public Prospect updateProspect(HttpServletRequest request) throws SQLException, Exception {
+        request.setCharacterEncoding("UTF-8");
         long prospectid = Long.parseLong(getFieldValue(request, PROSPECT_ID));
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
@@ -106,6 +108,7 @@ public class ProspectForm {
         if (null != state) {
             switch (state) {
                 case "Non interessé":
+
                     prospectDao.delete(prospectid);
                     break;
                 case "Rendez-vous pris":

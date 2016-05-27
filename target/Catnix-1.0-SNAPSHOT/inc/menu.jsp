@@ -26,7 +26,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<c:url value="/index"/>">Accueil</a></li>
-                    <li><a href="<c:url value="/disconnection"/>">Déconnexion</a></li>
+                    <li><a href="<c:url value="/connection"/>">Déconnexion</a></li>
                 </ul>
             </div>
         </nav>

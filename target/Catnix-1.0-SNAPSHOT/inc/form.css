@@ -5,9 +5,9 @@ body, p, legend, label, input {
 }
 
 h1 {
-    
+
     text-align: center; 
-    
+
 }
 
 fieldset {
@@ -69,3 +69,8 @@ form .success {
 }
 
 
+h1 {
+
+    text-align: center; 
+
+}

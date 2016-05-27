@@ -17,36 +17,39 @@
 
         <c:import url="/inc/menu.jsp" />
 
-        <h1> Liste des appels d'offre à valider </h1>
-        <br/>
+        <div class="container">
 
-        <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <tr> 
-                <th> Title </th> 
-                <th> Activity Area </th> 
-                <th> Contact Name </th> 
-                <th> Contact Phone </th> 
-                <th> Contact Email </th> 
-                <th> Origin </th> 
-                <th> Take </th> 
-                <th> Reject </th> 
-            </tr>
-       </thead>
-       <tbody>
-            <c:forEach items="${ sessionScope.tenders }" var="tender" >
-                <tr> 
-                    <td> <c:out value="${tender.title}" />  </td> 
-                    <td>  <c:out value="${tender.activityArea}" /> </td> 
-                    <td>  <c:out value="${tender.contactName}" /> </td> 
-                    <td>  <c:out value="${tender.contactPhone}" /> </td> 
-                    <td>  <c:out value="${tender.contactEmail}" /> </td> 
-                    <td>  <c:out value="${tender.origin}" /> </th> 
-                    <td> <a href="<c:url value="/acceptTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Accept </a> </th>
-                    <td> <a href="<c:url value="/rejectTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Reject </a> </th> 
-                    </tr> 
-            </c:forEach>
-       </tbody>
-        </table>
-       </div>
+            <h1> Liste des appels d'offre à valider </h1>
+            <br/>
+
+            <table  class="table table-striped table-bordered"> 
+                <thead>
+                    <tr> 
+                        <th> Titre </th> 
+                        <th> Secteur d'activité </th> 
+                        <th> Nom du contact </th> 
+                        <th> Mobile du contact </th> 
+                        <th> Mail du contact </th> 
+                        <th> Origine de l'AO </th> 
+                        <th> Accepter </th> 
+                        <th> Rejeter </th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${ sessionScope.tenders }" var="tender" >
+                        <tr> 
+                            <td> <c:out value="${tender.title}" />  </td> 
+                            <td>  <c:out value="${tender.activityArea}" /> </td> 
+                            <td>  <c:out value="${tender.contactName}" /> </td> 
+                            <td>  <c:out value="${tender.contactPhone}" /> </td> 
+                            <td>  <c:out value="${tender.contactEmail}" /> </td> 
+                            <td>  <c:out value="${tender.origin}" /> </td> 
+                            <td> <a href="<c:url value="/acceptTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Accept </a> </td>
+                            <td> <a href="<c:url value="/rejectTender"><c:param name="idTender" value="${ tender.id }" /></c:url>"> Reject </a> </td> 
+                            </tr> 
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

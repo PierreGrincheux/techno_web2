@@ -27,7 +27,7 @@
 
                 
                     <div class="form-group">
-                        <label for="title" class="control-label col-sm-2">Title :  <span class="required">*</span></label>
+                        <label for="title" class="control-label col-sm-2">Titre :  <span class="required">*</span></label>
                      
                         <div class="col-sm-8">
                             <input type="text" id="title" name="title" size="20" maxlength="25" class="form-control" />  
@@ -36,7 +36,7 @@
                         <br/> 
                     </div>
                     <div class="form-group">
-                        <label for="activityArea" class="control-label col-sm-2">Activity Area :   <span class="required">*</span></label>
+                        <label for="activityArea" class="control-label col-sm-2">Secteur d'activité :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="activityArea" name="activityArea"  size="20" maxlength="25" class="form-control"/> 
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                         
                     <div class="form-group">
-                        <label for="contactName" class="control-label col-sm-2">Contact Name :   <span class="required">*</span></label>
+                        <label for="contactName" class="control-label col-sm-2">Nom du contact :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="contactName" name="contactName"  size="20" maxlength="25" class="form-control" /> 
                         </div>
@@ -54,7 +54,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="contactPhone" class="control-label col-sm-2">Contact Phone :   <span class="required">*</span></label>
+                        <label for="contactPhone" class="control-label col-sm-2">Mobile du contact :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="contactPhone" name="contactPhone"  size="20" maxlength="10" class="form-control" />   
                         </div>
@@ -63,7 +63,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="contactEmail" class="control-label col-sm-2">Contact Email :</label>
+                        <label for="contactEmail" class="control-label col-sm-2">Mail du contact :</label>
                         <div class="col-sm-8">
                           <input type="text" id="contactEmail" name="contactEmail"  size="20" maxlength="40" class="form-control" /> 
                         </div>
@@ -71,7 +71,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="origin" class="control-label col-sm-2">Origin :  <span class="required">*</span></label>
+                        <label for="origin" class="control-label col-sm-2">Origine de l'AO :  <span class="required">*</span></label>
                         <div class="col-sm-8">
                            <input type="text" id="origin" name="origin"  size="20" maxlength="25" class="form-control"/> 
                         </div>
@@ -80,7 +80,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="additionalFiles" class="control-label col-sm-2">Additional files :  </label>
+                        <label for="additionalFiles" class="control-label col-sm-2">Fichier complémentaire :  </label>
                         <div class="col-sm-10">
                             <input type="file" id="additionalFiles" name="additionalFiles" />       
                         </div>

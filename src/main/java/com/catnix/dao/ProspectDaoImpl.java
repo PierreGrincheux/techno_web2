@@ -23,7 +23,7 @@ public class ProspectDaoImpl implements ProspectDao {
     private static final String SQL_INSERT = "INSERT INTO prospect (company_name, activity_area, website, phone_number, email, contact_name, state, callback_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE prospect SET activity_area = ?, website = ?, phone_number = ?, email = ?, contact_name = ?, state = ?, callback_date = ? WHERE id = ?";
     private static final String SQL_DELETE_FROM_ID = "DELETE FROM prospect WHERE id = ?";
-    private static final String SQL_COUNT_STATE = "SELECT COUNT(*) FROM prospect where state= ?";
+    private static final String SQL_COUNT_STATE = "SELECT COUNT(*) AS COUNTRESULT FROM prospect where state= ?";
 
     private final DAOFactory daoFactory;
 
@@ -188,4 +188,32 @@ public class ProspectDaoImpl implements ProspectDao {
         return prospect;
     }
 
+    @Override
+    public int getNbOfProspectByState(String state) throws DAOException{
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int nbProspects = 0;
+
+        try {
+            connection = daoFactory.getConnection();
+            preparedStatement = connection.prepareStatement(SQL_COUNT_STATE);
+            preparedStatement.setString(1, state);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                nbProspects=resultSet.getInt("COUNTRESULT");                
+            }
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            silentClosures(resultSet, preparedStatement, connection);
+        }
+
+        return nbProspects;
+            
+    }
+
+   
 }
+
+   

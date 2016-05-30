@@ -33,7 +33,11 @@
             <c:if test="${member.role == 'CP'}">
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultTenders"/>"> Consulter les AO disponibles</a></p>
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultMyTenders"/>"> Consulter mes AO</a></p>
-                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>"> Consulter les prospects</a></p>
+                <p>
+                    <span class="glyphicon glyphicon glyphicon-tag"></span>
+                    <a href="<c:url value="/ShowProspect"/>"> Consulter les prospects</a>
+                    ( <c:out value="${nbNewProspects}" /> nouveaux prospects ) 
+                </p>
 
 
             </c:if>

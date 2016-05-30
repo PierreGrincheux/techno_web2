@@ -27,4 +27,6 @@ public interface ProspectDao {
     
     void deleteRelatedComments(long prospectid) throws DAOException;
     
+    int getNbOfProspectByState(String state)throws DAOException;
+    
 }

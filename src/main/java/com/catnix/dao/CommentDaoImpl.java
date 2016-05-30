@@ -44,7 +44,8 @@ public class CommentDaoImpl implements CommentDao {
             preparedStatement.setLong(1, comment.getAuthor_id());
             preparedStatement.setLong(2, comment.getProspect_id());
             preparedStatement.setString(3, comment.getContent());
-            preparedStatement.setDate(4, (Date) comment.getDate());        
+            java.sql.Date date = new java.sql.Date(comment.getDate().getTime());
+            preparedStatement.setDate(4, date);        
             
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {

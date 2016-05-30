@@ -12,7 +12,8 @@
         <title>Catnix</title>
     </head>
     <body>
-        <h1>prospectipated</h1>
-        <p class="${empty formprospect.errors ? 'success' : 'error'}">${formprospect.result}</p>
+        <h1>prospect <c:out value="${prospect.company_name}" /> updated</h1>
+        <p>${formprospect.result}</p>
+        <p>${formcomment.result}</p>
     </body>
 </html>

@@ -6,6 +6,7 @@ import com.catnix.dao.CommentDao;
 import com.catnix.dao.CommentDaoImpl;
 import com.catnix.dao.ProspectDao;
 import com.catnix.dao.ProspectDaoImpl;
+import com.catnix.forms.CommentForm;
 import com.catnix.forms.ProspectForm;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class ShowProspectCard extends HttpServlet {
     public static final String SESSION_PROSPECT_ATT = "prospect";  
     public static final String SESSION_COMMENTS_ATT = "allcomments";
     public static final String ATT_FORM_PROSPECT = "formprospect";
+    public static final String ATT_FORM_COMMENT = "formcomment";
 
 
     
@@ -74,8 +76,20 @@ public class ShowProspectCard extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        Comment comment = new Comment();
+        CommentForm commentForm = new CommentForm();
+        
+        try {
+            comment = commentForm.addComment(request);
+
+        } catch (Exception ex) {
+            Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
          
         request.setAttribute(ATT_FORM_PROSPECT, prospectForm);
+        request.setAttribute(ATT_FORM_COMMENT, commentForm);
         session.setAttribute(SESSION_PROSPECT_ATT, prospect);  
         this.getServletContext().getRequestDispatcher(VIEW_SHOW_PROSPECT_UPDATE).forward(request, response);
         //response.sendRedirect("/catnix/ShowProspectCard?prospectid=" + prospect.getId());

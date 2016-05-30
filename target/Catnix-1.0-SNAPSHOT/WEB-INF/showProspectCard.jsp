@@ -14,6 +14,9 @@
         <title>Catnix</title>
     </head>
     <body>
+        <c:import url="/inc/menu.jsp" />
+        <div class="container">
+
         <c:set var="prospect" scope="session" value="${sessionScope.prospect}" />
         <h1><c:out value="${prospect.company_name}" /></h1>
 
@@ -44,11 +47,10 @@
                 <p>
                 <h3>Anciens commentaires</h3>
                 <c:forEach items="${sessionScope.allcomments}" var="comment">
-                    <p><c:out value="${comment.date}" /></p>
-                    <p><c:out value="${comment.content}" /></p>                    
+                    <p><c:out value="${comment.date}" /> | <c:out value="${comment.content}" /></p>                    
                 </c:forEach>
                 <label for="comment">Ajouter un commentaire </label>
-                <input type="text" id="comment" name="comment"/>  
+                <input type="text" id="content" name="content"/>  
                 <br/>    
                 <label for="state">Résultat de l'appel <span class="required">*</span></label>
                 <br>
@@ -57,10 +59,11 @@
                 <input type="radio" name="state" value="Echec de l'appel"> Echec de l'appel<br>
                 <input type="radio" name="state" value="Non interessé"> Non interessé (le prospect sera supprimé)<br>
                 
-                <!--mettre une fonction javascript pour voir l'input inuquement quand la valeur est "a rappeler"-->
-                <label for="callback_date">Date de rappel  </label>
-                <input type="date" id="callback_date" name="callback_date"/>
+                <!--mettre une fonction javascript pour voir l'input uniquement quand la valeur est "a rappeler"-->
+                <label for="callback_date">Date de rappel (format : yyyy-mm-dd) </label>
+                <input type="date" id="callback_date" name="callback_date" value="<c:out value='${prospect.callback_date}' />" />
                 <input type="hidden" id="prospectid" name="prospectid" value="<c:out value='${prospect.id}'/>"/>
+                <input type="hidden" id="memberid" name="memberid" value="<c:out value='${member.id}'/>"/>
                 <br/> 
                 <input type="submit" id="submit" name="submit" value="sauvegarder les modifications" />
                 </a>
@@ -70,7 +73,7 @@
         <div>
             <button>Envoyer une plaquette</button>
         </div>
-        
+        </div>
 
     </body>
 </html>

@@ -19,7 +19,7 @@
         
         <div class="container">
         <h2>Liste des prospects</h2>
-        <table class="table table-striped table-bordered">
+        <div class="container">  <table class="table table-striped table-bordered">
             <thead>
                 <tr> 
                     <th> Nom de l'entreprise </th> 

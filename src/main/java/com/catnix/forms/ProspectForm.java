@@ -103,7 +103,7 @@ public class ProspectForm {
         String email = getFieldValue(request, EMAIL_FIELD);
         String contact_name = getFieldValue(request, CONTACT_NAME_FIELD);
         String state = getFieldValue(request, STATE_FIELD);
-        Date callback_date = getDateFieldValue(request, CALLBACK_DATE_FIELD);
+        String scallback_date = getFieldValue(request, CALLBACK_DATE_FIELD);
 
         if (null != state) {
             if ("Non interessé".equals(state)) {
@@ -113,12 +113,13 @@ public class ProspectForm {
                 } else {
                     result = "delete failed !";
                 }
-            } else if ("Rendez-vous pris".equals(state) || "A rappeler".equals(state) || "Echec de l'appel".equals(state)) {
+            } else if ("Rendez-vous pris".equals(state) || "Echec de l'appel".equals(state)) {
                 try {
                     IsNullFieldValidation(activity_area);
                 } catch (Exception e) {
                     setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
                 }
+                prospect.setId(prospectid);
                 prospect.setActivity_area(activity_area);
                 prospect.setWebsite(website);
                 try {
@@ -131,11 +132,48 @@ public class ProspectForm {
                 prospect.setEmail(email);
                 prospect.setContact_name(contact_name);
                 prospect.setState(state);
-                prospect.setCallback_date(callback_date);
+                prospect.setCallback_date(null);
                 prospectDao.update(prospect);
 
                 if (errors.isEmpty()) {
-                    result = "Prospect has been updated to the database";
+                    result = "Prospect has been successfully updated";
+                } else {
+                    result = "update failed !";
+                }
+
+            } else if ("A rappeler".equals(state)) {
+                try {
+                    IsNullFieldValidation(activity_area);
+                } catch (Exception e) {
+                    setErreur(ACTIVITY_AREA_FIELD, e.getMessage());
+                }
+                prospect.setId(prospectid);
+                prospect.setActivity_area(activity_area);
+                prospect.setWebsite(website);
+                try {
+                    IsNullFieldValidation(phone_number);
+                    LenghtFieldValidation(phone_number, 25);
+                } catch (Exception e) {
+                    setErreur(PHONE_NUMBER_FIELD, e.getMessage());
+                }
+                prospect.setPhone_number(phone_number);
+                prospect.setEmail(email);
+                prospect.setContact_name(contact_name);
+                prospect.setState(state);
+                try {
+                    IsNullFieldValidation(scallback_date);
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Date callback_date = sdf.parse(scallback_date);
+                    prospect.setCallback_date(callback_date);
+
+                } catch (Exception e) {
+                    setErreur(CALLBACK_DATE_FIELD, e.getMessage());
+                }
+                               
+                prospectDao.update(prospect);
+
+                if (errors.isEmpty()) {
+                    result = "Prospect has been successfully updated";
                 } else {
                     result = "update failed !";
                 }
@@ -143,12 +181,12 @@ public class ProspectForm {
             }
         }
 
-         return prospect;
+        return prospect;
     }
 
     public void IsNullFieldValidation(String field) throws SQLException, Exception {
         if (field == null) {
-            throw new Exception("Please fill the field.");
+            throw new Exception("Please fill in the field.");
         }
     }
 
@@ -170,18 +208,6 @@ public class ProspectForm {
         } else {
             return value;
         }
-    }
-
-    public Date getDateFieldValue(HttpServletRequest request, String fieldName) throws ParseException {
-        String value = request.getParameter(fieldName);
-        if (value == null || value.trim().length() == 0) {
-            return null;
-        } else {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date callback_date = sdf.parse(value);
-            return callback_date;
-        }
-
     }
 
 }

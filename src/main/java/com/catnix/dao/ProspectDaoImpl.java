@@ -6,6 +6,7 @@ import static com.catnix.dao.DAOUtilitaire.preparedStatementInit;
 import static com.catnix.dao.DAOUtilitaire.silentClosures;
 import com.catnix.exceptions.DAOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +21,9 @@ public class ProspectDaoImpl implements ProspectDao {
     private static final String SQL_SELECT = "SELECT * FROM  prospect";
     private static final String SQL_SELECT_WITH_ID = "SELECT *  FROM prospect WHERE id = ?";
     private static final String SQL_INSERT = "INSERT INTO prospect (company_name, activity_area, website, phone_number, email, contact_name, state, callback_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE prospect SET activity_area = ?, website = ?, phone_number = ?, email = ?, contact_name = ?, state = ?, callback_date = ? WERE id = ?";
+    private static final String SQL_UPDATE = "UPDATE prospect SET activity_area = ?, website = ?, phone_number = ?, email = ?, contact_name = ?, state = ?, callback_date = ? WHERE id = ?";
     private static final String SQL_DELETE_FROM_ID = "DELETE FROM prospect WHERE id = ?";
+    private static final String SQL_COUNT_STATE = "SELECT COUNT(*) FROM prospect where state= ?";
 
     private final DAOFactory daoFactory;
 
@@ -37,10 +39,10 @@ public class ProspectDaoImpl implements ProspectDao {
         Prospect prospect = null;
 
         try {
-            connection = daoFactory.getConnection();           
+            connection = daoFactory.getConnection();
             preparedStatement = connection.prepareStatement(SQL_SELECT_WITH_ID);
             preparedStatement.setLong(1, id);
-            resultSet = preparedStatement.executeQuery();           
+            resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 prospect = map(resultSet);
             }
@@ -88,17 +90,22 @@ public class ProspectDaoImpl implements ProspectDao {
 
         try {
             connection = daoFactory.getConnection();
-            
+
             preparedStatement = preparedStatementInit(connection, SQL_UPDATE, true);
             preparedStatement.setString(1, prospect.getActivity_area());
             preparedStatement.setString(2, prospect.getWebsite());
             preparedStatement.setString(3, prospect.getPhone_number());
             preparedStatement.setString(4, prospect.getEmail());
             preparedStatement.setString(5, prospect.getContact_name());
-            preparedStatement.setString(7, prospect.getState());
-            preparedStatement.setDate(8, (java.sql.Date) prospect.getCallback_date());
-            preparedStatement.setLong(9, prospect.getId());
-            
+            preparedStatement.setString(6, prospect.getState());
+            if (prospect.getCallback_date() == null) {
+                preparedStatement.setDate(7, (Date) prospect.getCallback_date());
+            } else {
+                java.sql.Date callback = new java.sql.Date(prospect.getCallback_date().getTime());
+                preparedStatement.setDate(7, callback);
+            }
+            preparedStatement.setLong(8, prospect.getId());
+
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {
                 throw new DAOException("Updating prospect failed, no updated row in datatable.");
@@ -136,20 +143,20 @@ public class ProspectDaoImpl implements ProspectDao {
     }
 
     @Override
-    public void deleteRelatedComments(long prospectid) throws DAOException{
+    public void deleteRelatedComments(long prospectid) throws DAOException {
         ArrayList<Comment> allcomments = new ArrayList();
         CommentDao commentDao = new CommentDaoImpl();
         allcomments = commentDao.list_for_prospect(prospectid);
-        for (Comment comment : allcomments){
-            commentDao.delete(comment.getId());            
+        for (Comment comment : allcomments) {
+            commentDao.delete(comment.getId());
         }
     }
-    
+
     @Override
     public void delete(long prospectid) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        
+
         deleteRelatedComments(prospectid);
 
         try {
@@ -180,5 +187,5 @@ public class ProspectDaoImpl implements ProspectDao {
 
         return prospect;
     }
- 
+
 }

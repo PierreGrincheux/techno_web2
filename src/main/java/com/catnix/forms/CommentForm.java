@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletRequest;
  * @author mélanie
  */
 public class CommentForm {
-    private static final String COMMENT_ID_FIELD = "comment_id";
-    private static final String AUTHOR_ID_FIELD = "author_id";
-    private static final String PROSPECT_ID_FIELD = "prospect_id";
+
+    private static final String AUTHOR_ID_FIELD = "memberid";
+    private static final String PROSPECT_ID_FIELD = "prospectid";
     private static final String CONTENT_FIELD = "content";
-    
+
     private String result;
     private Map<String, String> errors = new HashMap<>();
 
@@ -37,37 +37,33 @@ public class CommentForm {
         this.commentDao = new CommentDaoImpl();
         this.comment = new Comment();
     }
-    
+
     public Comment addComment(HttpServletRequest request) throws SQLException, Exception {
 
-        long author_id = Long.parseLong(getFieldValue(request, AUTHOR_ID_FIELD ));
-        long prospect_id = Long.parseLong(getFieldValue(request, PROSPECT_ID_FIELD ));
+        long authorId = Long.parseLong(getFieldValue(request, AUTHOR_ID_FIELD));
+        long prospectId = Long.parseLong(getFieldValue(request, PROSPECT_ID_FIELD));
         String content = getFieldValue(request, CONTENT_FIELD);
-        
-        comment.setAuthor_id(author_id);
-        comment.setProspect_id(prospect_id); 
-        Date date = new Date();
-        comment.setDate(date);
-        try {
-            IsNullFieldValidation(content);
-        } catch (Exception e) {
-            setErreur(CONTENT_FIELD, e.getMessage());
-        }
-        comment.setContent(content);
-        
-        if (errors.isEmpty()) {
-            commentDao.create(comment);
-            result = "Your comment has been added to the database";
-        } else {
-            result = "Adding failed !";
+
+        if (content != null) {
+            comment.setAuthor_id(authorId);
+            comment.setProspect_id(prospectId);
+            Date date = new Date();
+            comment.setDate(date);
+            try {
+                LenghtFieldValidation(content, 400);
+            } catch (Exception e) {
+                setErreur(CONTENT_FIELD, e.getMessage());
+            }
+            comment.setContent(content);
+
+            if (errors.isEmpty()) {
+                commentDao.create(comment);
+                result = "Your comment has been added to the database";
+            } else {
+                result = "Adding failed !";
+            }
         }
         return comment;
-    }
-    
-    public void IsNullFieldValidation(String field) throws SQLException, Exception {
-        if (field == null) {
-            throw new Exception("Please fill the field.");
-        }
     }
 
     public void LenghtFieldValidation(String field, int lenght) throws SQLException, Exception {
@@ -89,5 +85,5 @@ public class CommentForm {
             return value;
         }
     }
-    
+
 }

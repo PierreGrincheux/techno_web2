@@ -1,5 +1,6 @@
 package com.catnix.dao;
 
+import com.catnix.beans.Comment;
 import com.catnix.beans.Prospect;
 import static com.catnix.dao.DAOUtilitaire.preparedStatementInit;
 import static com.catnix.dao.DAOUtilitaire.silentClosures;
@@ -135,13 +136,25 @@ public class ProspectDaoImpl implements ProspectDao {
     }
 
     @Override
-    public void delete(long prospect_id) throws DAOException {
+    public void deleteRelatedComments(long prospectid) throws DAOException{
+        ArrayList<Comment> allcomments = new ArrayList();
+        CommentDao commentDao = new CommentDaoImpl();
+        allcomments = commentDao.list_for_prospect(prospectid);
+        for (Comment comment : allcomments){
+            commentDao.delete(comment.getId());            
+        }
+    }
+    
+    @Override
+    public void delete(long prospectid) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        
+        deleteRelatedComments(prospectid);
 
         try {
             connection = daoFactory.getConnection();
-            preparedStatement = preparedStatementInit(connection, SQL_DELETE_FROM_ID, true, prospect_id);
+            preparedStatement = preparedStatementInit(connection, SQL_DELETE_FROM_ID, true, prospectid);
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {
                 throw new DAOException("Deleting prospect failed, no deleted row in datatable.");

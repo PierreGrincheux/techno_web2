@@ -28,7 +28,6 @@ com\catnix\dao\MemberDaoImpl.class
 com\catnix\beans\Tender.class
 com\catnix\servlets\AddTender.class
 com\catnix\beans\Comment.class
-com\catnix\servlets\Disconnection.class
 com\catnix\beans\Prospect.class
 com\catnix\dao\ProspectDao.class
 com\catnix\beans\TenderToAssign.class

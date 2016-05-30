@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Add Tender Page</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet"  href="<c:url value="inc/form.css" />" />
     </head>
     <body>
@@ -19,12 +19,15 @@
         <c:import url="/inc/menu.jsp" />
 
         <div class ="container">
-            <form action = "addTender" method="post" class="form-horizontal" role=form">
+            
+            <h1> Ajouter un appel d'offre </h1>
+            </br>
+            
+            <form action = "addTender" method="post" class="form-horizontal"/>
 
                 
-                    <legend>Form Tender</legend>
                     <div class="form-group">
-                        <label for="title" class="control-label col-sm-2">Title :  <span class="required">*</span></label>
+                        <label for="title" class="control-label col-sm-2">Titre :  <span class="required">*</span></label>
                      
                         <div class="col-sm-8">
                             <input type="text" id="title" name="title" size="20" maxlength="25" class="form-control" />  
@@ -33,7 +36,7 @@
                         <br/> 
                     </div>
                     <div class="form-group">
-                        <label for="activityArea" class="control-label col-sm-2">Activity Area :   <span class="required">*</span></label>
+                        <label for="activityArea" class="control-label col-sm-2">Secteur d'activité :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="activityArea" name="activityArea"  size="20" maxlength="25" class="form-control"/> 
                         </div>
@@ -42,7 +45,7 @@
                     </div>
                         
                     <div class="form-group">
-                        <label for="contactName" class="control-label col-sm-2">Contact Name :   <span class="required">*</span></label>
+                        <label for="contactName" class="control-label col-sm-2">Nom du contact :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="contactName" name="contactName"  size="20" maxlength="25" class="form-control" /> 
                         </div>
@@ -51,7 +54,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="contactPhone" class="control-label col-sm-2">Contact Phone :   <span class="required">*</span></label>
+                        <label for="contactPhone" class="control-label col-sm-2">Mobile du contact :   <span class="required">*</span></label>
                         <div class="col-sm-8">
                             <input type="text" id="contactPhone" name="contactPhone"  size="20" maxlength="10" class="form-control" />   
                         </div>
@@ -60,7 +63,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="contactEmail" class="control-label col-sm-2">Contact Email :</label>
+                        <label for="contactEmail" class="control-label col-sm-2">Mail du contact :</label>
                         <div class="col-sm-8">
                           <input type="text" id="contactEmail" name="contactEmail"  size="20" maxlength="40" class="form-control" /> 
                         </div>
@@ -68,7 +71,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="origin" class="control-label col-sm-2">Origin :  <span class="required">*</span></label>
+                        <label for="origin" class="control-label col-sm-2">Origine de l'AO :  <span class="required">*</span></label>
                         <div class="col-sm-8">
                            <input type="text" id="origin" name="origin"  size="20" maxlength="25" class="form-control"/> 
                         </div>
@@ -77,7 +80,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="additionalFiles" class="control-label col-sm-2">Additional files :  </label>
+                        <label for="additionalFiles" class="control-label col-sm-2">Fichier complémentaire :  </label>
                         <div class="col-sm-10">
                             <input type="file" id="additionalFiles" name="additionalFiles" />       
                         </div>
@@ -86,7 +89,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-2">
-                             <input type="submit" id="submit" name="submit" value="submit" class="btn btn-default btn-md" /> 
+                             <input type="submit" id="submit" name="submit" value="Ajouter" class="btn btn-default btn-md" /> 
 
                               <p class="${empty formTender.errors ? 'success' : 'error'}">${formTender.result}</p>
                         <div>

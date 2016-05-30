@@ -123,9 +123,9 @@ public class TenderForm {
 
         if (field != null) {
 
-            if (field.length() < 5) {
+            if (field.length() < 4) {
 
-                throw new Exception("This field must be at least 5 characters long.");
+                throw new Exception("This field must be at least 4 characters long.");
             }
 
         } else {

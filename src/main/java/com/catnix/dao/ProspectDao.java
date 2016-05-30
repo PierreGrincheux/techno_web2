@@ -25,4 +25,6 @@ public interface ProspectDao {
 
     void delete(long id) throws DAOException;
     
+    void deleteRelatedComments(long prospectid) throws DAOException;
+    
 }

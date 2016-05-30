@@ -77,7 +77,8 @@ public class ShowProspectCard extends HttpServlet {
          
         request.setAttribute(ATT_FORM_PROSPECT, prospectForm);
         session.setAttribute(SESSION_PROSPECT_ATT, prospect);  
-        response.sendRedirect("/catnix/ShowProspectCard?prospectid=" + prospect.getId());
+        this.getServletContext().getRequestDispatcher(VIEW_SHOW_PROSPECT_UPDATE).forward(request, response);
+        //response.sendRedirect("/catnix/ShowProspectCard?prospectid=" + prospect.getId());
         
     }
 

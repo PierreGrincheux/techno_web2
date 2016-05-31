@@ -23,6 +23,7 @@ com\catnix\servlets\ConsultTenders.class
 com\catnix\dao\MemberDao.class
 com\catnix\exceptions\DAOException.class
 com\catnix\forms\TenderForm.class
+com\catnix\servlets\AddProspectCSV.class
 com\catnix\dao\DAOUtilitaire.class
 com\catnix\dao\MemberDaoImpl.class
 com\catnix\beans\Tender.class

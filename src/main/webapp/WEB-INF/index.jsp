@@ -25,7 +25,8 @@
 
 
             <c:if test="${member.role == 'RC'}">
-                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/addProspect"/>"> Ajouter des prospects</a></p>
+                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/addProspect"/>"> Ajouter un prospect</a></p>
+                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/addProspectCSV"/>"> Ajouter des prospect avec un ficher .csv</a></p>
                 <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/handleTender"/>"> Valider un AO</a></p>
                 <p><span class="glyphicon glyphicon-list-alt"></span><a href="<c:url value="/consultTendersToAssign"/>"> Assigner un AO à un CDP</a></p>
 

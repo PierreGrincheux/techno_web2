@@ -85,7 +85,7 @@
                     <span class="error">${formprospect.errors['contact_name']}</span>
                     <br/> 
                 </div>    
-
+                    <p> *Champ obligatoire</p>    
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-2">
                         <input type="submit" id="submit" name="submit" value="Ajouter" class="btn btn-default btn-md" /> 

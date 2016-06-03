@@ -35,7 +35,6 @@
             <!--à remplace par un screenshot-->
         </p>
         <form action = "addProspectCSV" method="post" enctype="multipart/form-data">
-            <label for="csvfile">choisissez votre fichier : </label>
             <input type="file" name="csvfile" id="csvfile" accept=".csv"/> <br>
             <input type="submit" id="submit" name="submit" value="Ajouter les prospects" /> 
             

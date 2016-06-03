@@ -113,7 +113,7 @@ public class ProspectForm {
                 } else {
                     result = "delete failed !";
                 }
-            } else if ("Rendez-vous pris".equals(state) || "Echec de l'appel".equals(state)) {
+            } else if ("Rendez-vous pris".equals(state)) {
                 try {
                     IsNullFieldValidation(activity_area);
                 } catch (Exception e) {

@@ -55,11 +55,10 @@
                 <label for="state">Résultat de l'appel <span class="required">*</span></label>
                 <br>
                 <input type="radio" name="state" value="Rendez-vous pris"> Rendez-vous pris<br>
-                <input type="radio" name="state" value="A rappeler"> A rappeler<br>
-                <input type="radio" name="state" value="Echec de l'appel"> Echec de l'appel<br>
+                <input type="radio" name="state" value="A rappeler"> A rappeler / Echec de l'appel <br>
                 <input type="radio" name="state" value="Non interessé"> Non interessé (le prospect sera supprimé)<br>
                 
-                <!--mettre une fonction javascript pour voir l'input uniquement quand la valeur est "a rappeler"-->
+                <!--mettre une fonction javascript pour voir l'input uniquement quand la valeur est "a rappeler / echec de l'appel"-->
                 <label for="callback_date">Date de rappel (format : yyyy-mm-dd) </label>
                 <input type="date" id="callback_date" name="callback_date" value="<c:out value='${prospect.callback_date}' />" />
                 <input type="hidden" id="prospectid" name="prospectid" value="<c:out value='${prospect.id}'/>"/>

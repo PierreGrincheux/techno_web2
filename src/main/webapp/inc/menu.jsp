@@ -4,7 +4,7 @@
     Author     : Fritsch
 --%>
 
-//pouet!!!!
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -21,7 +21,7 @@
     </head>
     <body>
 
-<<<<<<< HEAD
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -52,26 +52,7 @@
     </ul>
   </div>
 </nav>
-  
-<!--<div class="container">
-  <h3>Basic Navbar Example</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
-</div> -->
-=======
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Catnix</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="<c:url value="/index"/>">Accueil</a></li>
-                    <li><a href="<c:url value="/connection"/>">Déconnexion</a></li>
-                </ul>
-            </div>
-        </nav>
 
-                <p class="requiredFieldText">Champs obligatoires : <span style="color: #c00">*</span></p>
->>>>>>> cd425936a9d37ab614de8f70d747ddee34f68c77
 
     </body>
 </html>

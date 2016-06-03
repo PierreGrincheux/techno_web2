@@ -47,19 +47,4 @@
         </div>
     </body>
 </html>
-                <p><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
-                <p><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
-                <p><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
-
-            </c:if>    
-            <c:if test="${member.role == 'CP'}">
-                <p><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
-                <p><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
-                <p><a href="<c:url value="/ShowProspect"/>">Consult prospects</a></p>
-
-            </c:if>
-
-        </fieldset>
-        </div>
-    </body>
-</html>
+            

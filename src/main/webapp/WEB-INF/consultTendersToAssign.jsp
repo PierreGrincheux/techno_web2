@@ -10,35 +10,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tender to Assign List</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet" href="<c:url value ="inc/form.css" />" />
     </head>
     <body>
 
         <c:import url="/inc/menu.jsp" />
 
-        <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <caption> Tender to Assign List </caption> 
-            <tr> 
-                <th> Title </th> 
-                <th> Motivation Text </th> 
-                <th> Name CP </th> 
-                <th> Date </th> 
-                <th> Action </th> 
-            </tr> 
-            <c:forEach items="${ sessionScope.tendersToAssign }" var="tenderToAssign" >
-                <tr> 
-                    <th> <c:out value="${tenderToAssign.title}" />  </th> 
-                    <th>  <c:out value="${tenderToAssign.motivationText}" /> </th> 
-                    <th>  <c:out value="${tenderToAssign.nameCP}" /> </th> 
-                    <th>  <c:out value="${tenderToAssign.date}" /> </th> 
-                    <th> <a href="<c:url value="/assignCpToTender">
-                                <c:param name="idTenderToAssign" value="${ tenderToAssign.id }" />
-                                <c:param name="idTender" value="${ tenderToAssign.id_tender }" />
-                                <c:param name="nameCp" value="${ tenderToAssign.nameCP }" />
-                            </c:url>"> Assign </a> </th> 
-                </tr> 
-            </c:forEach>
-        </table>
+        <div class="container">
+
+            <h1> Assigner un chef de projet </h1>
+            <br/>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr> 
+                        <th> Titre </th> 
+                        <th> Texte de motivation </th> 
+                        <th> Chef de projet </th> 
+                        <th> Date </th> 
+                        <th> Action </th> 
+                    </tr> 
+                </thead>
+                <tbody>
+                    <c:forEach items="${ sessionScope.tendersToAssign }" var="tenderToAssign" >
+                        <tr> 
+                            <td> <c:out value="${tenderToAssign.title}" />  </td> 
+                            <td>  <c:out value="${tenderToAssign.motivationText}" /> </td> 
+                            <td>  <c:out value="${tenderToAssign.nameCP}" /> </td> 
+                            <td>  <c:out value="${tenderToAssign.date}" /> </td> 
+                            <td> <a href="<c:url value="/assignCpToTender">
+                                        <c:param name="idTenderToAssign" value="${ tenderToAssign.id }" />
+                                        <c:param name="idTender" value="${ tenderToAssign.id_tender }" />
+                                        <c:param name="nameCp" value="${ tenderToAssign.nameCP }" />
+                                    </c:url>"> Assign </a> </td> 
+                        </tr> 
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

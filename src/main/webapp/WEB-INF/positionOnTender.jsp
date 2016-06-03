@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Position on Tender</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet" href="<c:url value ="inc/form.css" />" />
     </head>
     <body>

@@ -23,6 +23,10 @@ public interface ProspectDao {
 
     ArrayList<Prospect> list() throws DAOException;
 
+<<<<<<< HEAD
     void delete(Prospect prospect) throws DAOException;
+=======
+    void delete(long id) throws DAOException;
+>>>>>>> cd425936a9d37ab614de8f70d747ddee34f68c77
     
 }

@@ -12,15 +12,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link> <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-        
+        <title>Catnix</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> </link>
+
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -56,7 +57,21 @@
   <h3>Basic Navbar Example</h3>
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
 </div> -->
+=======
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Catnix</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<c:url value="/index"/>">Accueil</a></li>
+                    <li><a href="<c:url value="/connection"/>">Déconnexion</a></li>
+                </ul>
+            </div>
+        </nav>
 
-         <br/>
+                <p class="requiredFieldText">Champs obligatoires : <span style="color: #c00">*</span></p>
+>>>>>>> cd425936a9d37ab614de8f70d747ddee34f68c77
+
     </body>
 </html>

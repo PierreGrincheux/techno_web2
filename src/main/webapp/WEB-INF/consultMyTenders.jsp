@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consult my Tenders</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet" href="<c:url value ="inc/form.css" />" />
     </head>
     <body>
@@ -18,29 +18,39 @@
 
         <c:import url="/inc/menu.jsp" />
 
-        <table border="1" cellpadding="10" cellspacing="1" width="100%"> 
-            <caption> Tender List </caption> 
-            <tr> 
-                <th> Title </th> 
-                <th> Activity Area </th> 
-                <th> Contact Name </th> 
-                <th> Contact Phone </th> 
-                <th> Contact Email </th> 
-                <th> Origin </th> 
-            </tr> 
-            <c:forEach items="${ sessionScope.cpTenders }" var="tender" >
+        <div class="container">
 
-                <tr> 
-                    <th> <c:out value="${tender.title}" />  </th> 
-                    <th>  <c:out value="${tender.activityArea}" /> </th> 
-                    <th>  <c:out value="${tender.contactName}" /> </th> 
-                    <th>  <c:out value="${tender.contactPhone}" /> </th> 
-                    <th>  <c:out value="${tender.contactEmail}" /> </th> 
-                    <th>  <c:out value="${tender.origin}" /> </th> 
-                </tr> 
+            <h1> Mes appels d'offre </h1>
+            <br/>
 
-            </c:forEach>
-        </table>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> 
+                        <th> Titre </th> 
+                        <th> Secteur d'activité </th> 
+                        <th> Nom du contact </th> 
+                        <th> Téléphone du contact </th> 
+                        <th> Mail du contact </th> 
+                        <th> Origine de l'AO </th> 
+                    </tr> 
+                </thead>
+                
+                <tbody>
+                    <c:forEach items="${ sessionScope.cpTenders }" var="tender" >
+
+                        <tr> 
+                            <td> <c:out value="${tender.title}" />  </td> 
+                            <td>  <c:out value="${tender.activityArea}" /> </td> 
+                            <td>  <c:out value="${tender.contactName}" /> </td> 
+                            <td>  <c:out value="${tender.contactPhone}" /> </td> 
+                            <td>  <c:out value="${tender.contactEmail}" /> </td> 
+                            <td>  <c:out value="${tender.origin}" /> </td> 
+                        </tr> 
+
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
 

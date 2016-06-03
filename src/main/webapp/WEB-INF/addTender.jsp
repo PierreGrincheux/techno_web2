@@ -3,7 +3,7 @@
     Created on : 23 avr. 2016, 17:49:07
     Author     : Fritsch
 --%>
-//test
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -11,60 +11,90 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Add Tender Page</title>
+        <title>Catnix</title>
         <link type="text/css" rel="stylesheet"  href="<c:url value="inc/form.css" />" />
     </head>
     <body>
 
         <c:import url="/inc/menu.jsp" />
-// teeeeeeest
 
-        <form action = "addTender" method="post">
+        <div class ="container">
 
-            <fieldset>
-                <legend>Form Tender</legend>
+            <h1> Ajouter un appel d'offre </h1>
+            </br>
+
+            <form action = "addTender" method="post" class="form-horizontal"/>
 
 
-                <label for="title">Title :  <span class="required">*</span></label>
-                <input type="text" id="title" name="title" size="20" maxlength="25" />  
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-2">Titre :  <span class="required">*</span></label>
+
+                <div class="col-sm-8">
+                    <input type="text" id="title" name="title" size="20" maxlength="25" class="form-control" />  
+                </div>
                 <span class="error">${formTender.errors['title']}</span>
                 <br/> 
-
-                <label for="activityArea">Activity Area :   <span class="required">*</span></label>
-                <input type="text" id="activityArea" name="activityArea"  size="20" maxlength="25" /> 
+            </div>
+            <div class="form-group">
+                <label for="activityArea" class="control-label col-sm-2">Secteur d'activité :   <span class="required">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" id="activityArea" name="activityArea"  size="20" maxlength="25" class="form-control"/> 
+                </div>
                 <span class="error">${formTender.errors['activityArea']}</span><span></span>
                 <br /> 
+            </div>
 
-                <label for="contactName">Contact Name :   <span class="required">*</span></label>
-                <input type="text" id="contactName" name="contactName"  size="20" maxlength="25" /> 
+            <div class="form-group">
+                <label for="contactName" class="control-label col-sm-2">Nom du contact :   <span class="required">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" id="contactName" name="contactName"  size="20" maxlength="25" class="form-control" /> 
+                </div>
                 <span class="error">${formTender.errors['contactName']}</span>
                 <br /> 
+            </div>
 
-                <label for="contactPhone">Contact Phone :   <span class="required">*</span></label>
-                <input type="text" id="contactPhone" name="contactPhone"  size="20" maxlength="10" /> 
+            <div class="form-group">
+                <label for="contactPhone" class="control-label col-sm-2">Mobile du contact :   <span class="required">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" id="contactPhone" name="contactPhone"  size="20" maxlength="10" class="form-control" />   
+                </div>
                 <span class="error">${formTender.errors['contactPhone']}</span>
                 <br /> 
+            </div>
 
-                <label for="contactEmail">Contact Email :</label>
-                <input type="text" id="contactEmail" name="contactEmail"  size="20" maxlength="40" /> 
+            <div class="form-group">
+                <label for="contactEmail" class="control-label col-sm-2">Mail du contact :</label>
+                <div class="col-sm-8">
+                    <input type="text" id="contactEmail" name="contactEmail"  size="20" maxlength="40" class="form-control" /> 
+                </div>
                 <br /> 
+            </div>
 
-
-                <label for="origin">Origin :  <span class="required">*</span></label>
-                <input type="text" id="origin" name="origin"  size="20" maxlength="25" /> 
+            <div class="form-group">
+                <label for="origin" class="control-label col-sm-2">Origine de l'AO :  <span class="required">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" id="origin" name="origin"  size="20" maxlength="25" class="form-control"/> 
+                </div>
                 <span class="error">${formTender.errors['origin']}</span>
                 <br /> 
+            </div>
 
-                <label for="additionalFiles">Additional files :  </label>
-                <input type="file" id="additionalFiles" name="additionalFiles" /> 
+            <div class="form-group">
+                <label for="additionalFiles" class="control-label col-sm-2">Fichier complémentaire :  </label>
+                <div class="col-sm-10">
+                    <input type="file" id="additionalFiles" name="additionalFiles" />       
+                </div>
                 <span></span>
-                <br /> 
+                <br /> <br /> 
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <input type="submit" id="submit" name="submit" value="Ajouter" class="btn btn-default btn-md" />
 
-                <input type="submit" id="submit" name="submit" value="submit" /> 
-
-                <p class="${empty formTender.errors ? 'success' : 'error'}">${formTender.result}</p>
-
-            </fieldset>
+                    <p class="${empty formTender.errors ? 'success' : 'error'}">${formTender.result}</p>
+                </div>
+            </div>
         </form>
-    </body>
+    </div>
+</body>
 </html>

@@ -19,12 +19,14 @@
 
         <c:import url="/inc/menu.jsp" />
 
+        <div class="container">
         <fieldset>
-            <p><a href="<c:url value="/addTender"/>">Add a tender</a></p>
+            <p><span class="glyphicon glyphicon-plus"></span><a href="<c:url value="/addTender"/>"> Ajouter un AO</a></p>
 
 
             <c:if test="${member.role == 'RC'}">
 
+<<<<<<< HEAD
                 <p><a href="<c:url value="/handleTender"/>">Handle a tender</a></p>
                 <p><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></p>
                 <p><a href="<c:url value="/AddProspect"/>">Add prospects</a></p>
@@ -34,8 +36,21 @@
                 <p><a href="<c:url value="/consultTenders"/>">Consult tenders</a></p>
                 <p><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></p>
                 <p><a href="<c:url value="/ShowProspect"/>">Consult prospects</a></p>
+=======
+                <p><span class="glyphicon glyphicon-zoom-in"></span><a href="<c:url value="/addProspect"/>"> Ajouter des prospects</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/handleTender"/>"> Valider un AO</a></p>
+                <p><span class="glyphicon glyphicon-list-alt"></span><a href="<c:url value="/consultTendersToAssign"/>"> Assigner un AO à un CDP</a></p>
+
+            </c:if>    
+            <c:if test="${member.role == 'CP'}">
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultTenders"/>"> Consulter les AO disponibles</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/consultMyTenders"/>"> Consulter mes AO</a></p>
+                <p><span class="glyphicon glyphicon glyphicon-tag"></span><a href="<c:url value="/ShowProspect"/>"> Consulter les prospects</a></p>
+
+>>>>>>> cd425936a9d37ab614de8f70d747ddee34f68c77
             </c:if>
 
         </fieldset>
+        </div>
     </body>
 </html>

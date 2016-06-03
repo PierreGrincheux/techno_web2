@@ -74,7 +74,7 @@ public class AddProspectCSV extends HttpServlet {
                 prospect.setCompany_name(csvprospect[0]);
                 prospect.setActivity_area(csvprospect[1]);
                 prospect.setWebsite(csvprospect[2]);
-                prospect.setPhone_number(csvprospect[3]);
+                prospect.setPhoneNumber(csvprospect[3]);
                 prospect.setEmail(csvprospect[4]);
                 prospect.setContact_name(csvprospect[5]);
                 prospect.setState("new");

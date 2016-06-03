@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ProspectForm {
 
+
     private static final String PROSPECT_ID = "prospectid";
     private static final String COMPANY_NAME_FIELD = "company_name";
     private static final String ACTIVITY_AREA_FIELD = "activity_area";
@@ -53,6 +54,7 @@ public class ProspectForm {
         String activity_area = getFieldValue(request, ACTIVITY_AREA_FIELD);
         String website = getFieldValue(request, WEBSITE_FIELD);
         String phone_number = getFieldValue(request, PHONE_NUMBER_FIELD);
+
         String email = getFieldValue(request, EMAIL_FIELD);
         String contact_name = getFieldValue(request, CONTACT_NAME_FIELD);
 
@@ -77,7 +79,7 @@ public class ProspectForm {
         } catch (Exception e) {
             setErreur(PHONE_NUMBER_FIELD, e.getMessage());
         }
-        prospect.setPhone_number(phone_number);
+        prospect.setPhoneNumber(phone_number);
         prospect.setEmail(email);
         prospect.setContact_name(contact_name);
 
@@ -86,7 +88,8 @@ public class ProspectForm {
 
         if (errors.isEmpty()) {
             prospectDao.create(prospect);
-            result = "Prospect " + company_name + " has been added to the database";
+            result = "Prospect " +company_name + " has been added to the database";
+
         } else {
             result = "Adding failed !";
         }
@@ -128,7 +131,7 @@ public class ProspectForm {
                 } catch (Exception e) {
                     setErreur(PHONE_NUMBER_FIELD, e.getMessage());
                 }
-                prospect.setPhone_number(phone_number);
+                prospect.setPhoneNumber(phone_number);
                 prospect.setEmail(email);
                 prospect.setContact_name(contact_name);
                 prospect.setState(state);
@@ -156,7 +159,7 @@ public class ProspectForm {
                 } catch (Exception e) {
                     setErreur(PHONE_NUMBER_FIELD, e.getMessage());
                 }
-                prospect.setPhone_number(phone_number);
+                prospect.setPhoneNumber(phone_number);
                 prospect.setEmail(email);
                 prospect.setContact_name(contact_name);
                 prospect.setState(state);
@@ -183,7 +186,6 @@ public class ProspectForm {
 
         return prospect;
     }
-
     public void IsNullFieldValidation(String field) throws SQLException, Exception {
         if (field == null) {
             throw new Exception("Please fill in the field.");
@@ -210,4 +212,16 @@ public class ProspectForm {
         }
     }
 
+    public Date getDateFieldValue(HttpServletRequest request, String fieldName) throws ParseException {
+        String value = request.getParameter(fieldName);
+        if (value == null || value.trim().length() == 0) {
+            return null;
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date callback_date = sdf.parse(value);
+            return callback_date;
+        }
+
+    }
 }
+

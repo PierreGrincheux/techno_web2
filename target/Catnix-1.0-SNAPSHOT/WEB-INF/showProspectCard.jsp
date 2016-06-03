@@ -1,4 +1,3 @@
-
 <%-- 
     Document   : showProspectCard
     Created on : 27 avr. 2016, 19:58:52
@@ -11,6 +10,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1><c:out value="${sessionScope.prospect.company_name}" /></h1>
+        <div>
+            <h2>informations nécéssaires pour contacter le prospect</h2>
+            <p>
+                Secteur d'activité : <c:out value="${sessionScope.prospect.company_name}" /> <br>
+                Site internet : <c:out value="${sessionScope.prospect.company_name}" /> <br>
+                N° de téléphone : <c:out value="${sessionScope.prospect.company_name}" /> <br>
+                Adresse email : <c:out value="${sessionScope.prospect.company_name}" /> <br>
+                Contact : <c:out value="${sessionScope.prospect.company_name}" /> <br>
+                
+            </p>
+        </div>
+        
+=======
         <title>Catnix</title>
     </head>
     <body>
@@ -71,7 +88,6 @@
         </form>
         <div>
             <button>Envoyer une plaquette</button>
-        </div>
         </div>
 
     </body>

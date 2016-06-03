@@ -25,22 +25,21 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "ShowProspectCard", urlPatterns = {"/ShowProspectCard"})
 public class ShowProspectCard extends HttpServlet {
+
     public static final String VIEW_SHOW_PROSPECT_CARD = "/WEB-INF/showProspectCard.jsp";
     public static final String VIEW_SHOW_PROSPECT_UPDATE = "/WEB-INF/validateUpdateProspect.jsp";
     public static final String SESSION_PROSPECT_ATT = "prospect";  
     public static final String SESSION_COMMENTS_ATT = "allcomments";
     public static final String ATT_FORM_PROSPECT = "formprospect";
     public static final String ATT_FORM_COMMENT = "formcomment";
-
-
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        
+        HttpSession session = request.getSession();        
         Prospect prospect = new Prospect();
         ProspectDao prospectDao = new ProspectDaoImpl();
+
         long prospectid =Long.parseLong(request.getParameter("prospectid"));        
         try {            
             prospect = prospectDao.find(prospectid);
@@ -66,6 +65,7 @@ public class ShowProspectCard extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session = request.getSession();
         Prospect prospect = new Prospect();
         ProspectForm prospectForm = new ProspectForm();
@@ -86,13 +86,11 @@ public class ShowProspectCard extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-         
+           
         request.setAttribute(ATT_FORM_PROSPECT, prospectForm);
         request.setAttribute(ATT_FORM_COMMENT, commentForm);
         session.setAttribute(SESSION_PROSPECT_ATT, prospect);  
         this.getServletContext().getRequestDispatcher(VIEW_SHOW_PROSPECT_UPDATE).forward(request, response);
-        //response.sendRedirect("/catnix/ShowProspectCard?prospectid=" + prospect.getId());
         
     }
 

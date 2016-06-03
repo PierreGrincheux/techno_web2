@@ -16,6 +16,8 @@ import java.util.ArrayList;
  *
  * @author melanie
  */
+
+
 public class ProspectDaoImpl implements ProspectDao {
 
     private static final String SQL_SELECT = "SELECT * FROM  prospect";
@@ -64,7 +66,7 @@ public class ProspectDaoImpl implements ProspectDao {
         try {
             connection = daoFactory.getConnection();
             preparedStatement = preparedStatementInit(connection, SQL_INSERT, true,
-                    prospect.getCompany_name(), prospect.getActivity_area(), prospect.getWebsite(), prospect.getPhone_number(), prospect.getEmail(), prospect.getContact_name(), prospect.getState(), prospect.getCallback_date());
+                    prospect.getCompany_name(), prospect.getActivity_area(), prospect.getWebsite(), prospect.getPhoneNumber(), prospect.getEmail(), prospect.getContact_name(), prospect.getState(), prospect.getCallback_date());
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {
                 throw new DAOException("Creating prospect failed, no inserted row in datatable.");
@@ -90,11 +92,11 @@ public class ProspectDaoImpl implements ProspectDao {
 
         try {
             connection = daoFactory.getConnection();
-
+            preparedStatement = preparedStatementInit(connection, SQL_UPDATE, true, prospect.getId());
             preparedStatement = preparedStatementInit(connection, SQL_UPDATE, true);
             preparedStatement.setString(1, prospect.getActivity_area());
             preparedStatement.setString(2, prospect.getWebsite());
-            preparedStatement.setString(3, prospect.getPhone_number());
+            preparedStatement.setString(3, prospect.getPhoneNumber());
             preparedStatement.setString(4, prospect.getEmail());
             preparedStatement.setString(5, prospect.getContact_name());
             preparedStatement.setString(6, prospect.getState());
@@ -105,7 +107,6 @@ public class ProspectDaoImpl implements ProspectDao {
                 preparedStatement.setDate(7, callback);
             }
             preparedStatement.setLong(8, prospect.getId());
-
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {
                 throw new DAOException("Updating prospect failed, no updated row in datatable.");
@@ -156,30 +157,52 @@ public class ProspectDaoImpl implements ProspectDao {
     public void delete(long prospectid) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-
         deleteRelatedComments(prospectid);
-
         try {
             connection = daoFactory.getConnection();
             preparedStatement = preparedStatementInit(connection, SQL_DELETE_FROM_ID, true, prospectid);
             int statut = preparedStatement.executeUpdate();
             if (statut == 0) {
-                throw new DAOException("Deleting prospect failed, no deleted row in datatable.");
+                    throw new DAOException("Deleting prospect failed, no deleted row in datatable.");
+                
+            } 
+        }catch (SQLException e) {
+            throw new DAOException(e);
+        }finally {
+            silentClosures(preparedStatement, connection);
+        }
+        }
+    private Prospect trouver(String sql, Object... objets) throws DAOException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Prospect prospect = null;
+
+        try {
+
+            connection = daoFactory.getConnection();
+
+            preparedStatement = preparedStatementInit(connection, sql, false, objets);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                prospect = map(resultSet);
             }
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
-            silentClosures(preparedStatement, connection);
+            silentClosures(resultSet, preparedStatement, connection);
         }
-    }
 
+        return prospect;
+    }
     private static Prospect map(ResultSet resultSet) throws SQLException {
         Prospect prospect = new Prospect();
         prospect.setId(resultSet.getLong("id"));
         prospect.setActivity_area(resultSet.getString("activity_area"));
         prospect.setWebsite(resultSet.getString("website"));
         prospect.setCompany_name(resultSet.getString("company_name"));
-        prospect.setPhone_number(resultSet.getString("phone_number"));
+        prospect.setPhoneNumber(resultSet.getString("phone_number"));
         prospect.setEmail(resultSet.getString("email"));
         prospect.setContact_name(resultSet.getString("contact_name"));
         prospect.setState(resultSet.getString("state"));
@@ -189,7 +212,7 @@ public class ProspectDaoImpl implements ProspectDao {
     }
 
     @Override
-    public int getNbOfProspectByState(String state) throws DAOException{
+    public int getNbOfProspectByState(String state) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -201,7 +224,7 @@ public class ProspectDaoImpl implements ProspectDao {
             preparedStatement.setString(1, state);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                nbProspects=resultSet.getInt("COUNTRESULT");                
+                nbProspects = resultSet.getInt("COUNTRESULT");
             }
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -210,10 +233,7 @@ public class ProspectDaoImpl implements ProspectDao {
         }
 
         return nbProspects;
-            
+
     }
 
-   
 }
-
-   

@@ -12,16 +12,28 @@ import java.util.Date;
  * @author melanie
  */
 public class Prospect {
-
     private Long id;
     private String company_name;
     private String activity_area;
     private String website;
-    private String phone_number;
+    private String phoneNumber;
     private String contact_name;
     private String email;
     private String state;
     private Date callback_date;
+ 
+    @Override
+    public String toString() {
+        return "Prospect{ " + "company name =" + getCompany_name()
+                + ", activity area =" + getActivity_area()
+                + ", website =" + getWebsite()
+                + ", phone number = " + getPhoneNumber()
+                + ", contact name = " + getContact_name()
+                + ", email = " + getEmail()
+                + ", state = " + getState()
+                + ", callback date = " + getCallback_date()
+                + '}';
+    }
 
     public Long getId() {
         return id;
@@ -47,12 +59,20 @@ public class Prospect {
         this.activity_area = activity_area;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setPhone_number(String phone_number1) {
-        this.phone_number = phone_number1;
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getContact_name() {
+        return contact_name;
+    }
+
+    public void setContact_name(String contact_name) {
+        this.contact_name = contact_name;
     }
 
     public String getEmail() {
@@ -79,34 +99,12 @@ public class Prospect {
         this.callback_date = callback_date;
     }
 
-    
-
-    public String getWebsite() {
-        return website;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getContact_name() {
-        return contact_name;
-    }
-
-    public void setContact_name(String contact_name) {
-        this.contact_name = contact_name;
-    }
-    
-    @Override
-    public String toString() {
-        return "Prospect{ " + "company name =" + getCompany_name()
-                + ", activity area =" + getActivity_area()
-                + ", website =" + getWebsite()
-                + ", phone number = " + getPhone_number()
-                + ", contact name = " + getContact_name()
-                + ", email = " + getEmail()
-                + ", state = " + getState()
-                + ", callback date = " + getCallback_date()
-                + '}';
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
+

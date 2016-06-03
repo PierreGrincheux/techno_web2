@@ -4,6 +4,8 @@
     Author     : Fritsch
 --%>
 
+//pouet!!!!
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -19,6 +21,43 @@
     </head>
     <body>
 
+<<<<<<< HEAD
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Catnix</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="<c:url value="/index"/>">Accueil</a></li>
+      <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Appel d'offre<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<c:url value="/addTender"/>">Add a tender</a>
+
+
+            <c:if test="${member.role == 'RC'}">
+
+            <li><a href="<c:url value="/handleTender"/>">Handle a tender</a></li>
+            <li><a href="<c:url value="/consultTendersToAssign"/>">Assign CP to a tender</a></li>
+
+            </c:if>    
+            <c:if test="${member.role == 'CP'}">
+                <li><a href="<c:url value="/consultTenders"/>">Consult tenders</a></li>
+                <li><a href="<c:url value="/consultMyTenders"/>">Consult my tenders</a></li>
+            </c:if>
+                         
+                        </ul>
+                    </li>
+      <li><a href="<c:url value="/disconnection"/>">Déconnexion</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<!--<div class="container">
+  <h3>Basic Navbar Example</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+</div> -->
+=======
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -32,6 +71,7 @@
         </nav>
 
                 <p class="requiredFieldText">Champs obligatoires : <span style="color: #c00">*</span></p>
+>>>>>>> cd425936a9d37ab614de8f70d747ddee34f68c77
 
     </body>
 </html>

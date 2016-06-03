@@ -22,7 +22,7 @@ public interface ProspectDao {
     void update(Prospect prospect) throws DAOException;
 
     ArrayList<Prospect> list() throws DAOException;
-
+    
     void delete(long id) throws DAOException;
     
     void deleteRelatedComments(long prospectid) throws DAOException;

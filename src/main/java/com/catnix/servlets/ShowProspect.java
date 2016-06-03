@@ -5,6 +5,8 @@ import com.catnix.dao.ProspectDao;
 import com.catnix.dao.ProspectDaoImpl;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,25 +36,20 @@ public class ShowProspect extends HttpServlet {
             allprospects = prospectDao.list();
         } catch (Exception ex) {
             Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+        Map<Long, Prospect> mapProspects = new HashMap<>();
+        for (Prospect prospect : allprospects) {
+            mapProspects.put(prospect.getId(), prospect);
         }
        
-        session.setAttribute(SESSION_PROSPECTS_ATT, allprospects);
-        
+        session.setAttribute(SESSION_PROSPECTS_ATT, allprospects);     
         this.getServletContext().getRequestDispatcher(VIEW_SHOW_PROSPECT_LIST).forward(request, response);
 
     }
 
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     }
-
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

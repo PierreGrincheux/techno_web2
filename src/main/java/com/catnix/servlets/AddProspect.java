@@ -1,8 +1,16 @@
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package com.catnix.servlets;
 
 import com.catnix.beans.Prospect;
 import com.catnix.forms.ProspectForm;
 import java.io.IOException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -15,12 +23,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mélanie
  */
+
 @WebServlet(name = "addProspect", urlPatterns = {"/addProspect"})
 public class AddProspect extends HttpServlet {
+
 
     public static final String VIEW_ADD_PROSPECT = "/WEB-INF/addProspect.jsp";
     public static final String ATT_FORM_PROSPECT = "formprospect";
     public static final String ATT_PROSPECT = "prospect";
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +58,5 @@ public class AddProspect extends HttpServlet {
         this.getServletContext().getRequestDispatcher(VIEW_ADD_PROSPECT).forward(request, response);
 
        
-    }
-
-
+    }   
 }

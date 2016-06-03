@@ -13,6 +13,7 @@
         <title>Catnix</title>
         <link type="text/css" rel="stylesheet"  href="<c:url value="inc/form.css" />" />
     </head>
+
     <body>
 
         <c:import url="/inc/menu.jsp" />
@@ -60,7 +61,7 @@
                     <label for="phone_number" class="control-label col-sm-2">Numéro de téléphone :  <span class="required">*</span></label>
 
                     <div class="col-sm-8">
-                        <input type="text" id="phone_number" name="phone_number" size="20" maxlength="25" class="form-control" />  
+                        <input type="text" id="phone_number" name="phone_number" size="20" maxlength="10" class="form-control" />  
                     </div>
                     <span class="error">${formprospect.errors['phone_number']}</span>
                     <br/> 
@@ -91,10 +92,9 @@
                         <input type="submit" id="submit" name="submit" value="Ajouter" class="btn btn-default btn-md" /> 
                     </div>
                     <p class="${empty formprospect.errors ? 'success' : 'error'}">${formprospect.result}</p>
-
+                </div>
             </form>
-        </fieldset>
-    </div>
-</body>
+        </div>
+    </body>
 </html>
 

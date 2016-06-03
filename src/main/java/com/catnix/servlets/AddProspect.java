@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "addProspect", urlPatterns = {"/addProspect"})
 public class AddProspect extends HttpServlet {
+
     public static final String VIEW_ADD_PROSPECT = "/WEB-INF/addProspect.jsp";
     public static final String ATT_FORM_PROSPECT = "formprospect";
     public static final String ATT_PROSPECT = "prospect";
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,6 @@ public class AddProspect extends HttpServlet {
         this.getServletContext().getRequestDispatcher(VIEW_ADD_PROSPECT).forward(request, response);
     }
 
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,14 +44,7 @@ public class AddProspect extends HttpServlet {
         request.setAttribute(ATT_FORM_PROSPECT, prospectForm);
         request.setAttribute(ATT_PROSPECT, prospect);
 
-        this.getServletContext().getRequestDispatcher(VIEW_ADD_PROSPECT).forward(request, response);
-
-       
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
+//        this.getServletContext().getRequestDispatcher(VIEW_ADD_PROSPECT).forward(request, response);
     }
 
 }

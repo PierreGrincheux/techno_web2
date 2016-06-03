@@ -5,9 +5,7 @@ body, p, legend, label, input {
 }
 
 h1 {
-
     text-align: center; 
-
 }
 
 fieldset {
@@ -21,7 +19,6 @@ legend {
     color: #0568CD;
 }
 
-/* Forms --------------------------------------------------------------------------------------- */
 .container{
     margin-left:auto;
     margin-right:auto;
@@ -54,23 +51,22 @@ form .required {
 
 form .error {
 
+    margin-top: 20px;
     color:#900;
-}
-
-
-form .info {
-
-    font-style : italic;
-    color:#E8A22B;
+    text-align: center;
 }
 
 form .success {
+    margin-top: 20px;
     color: #090;
 }
 
-
-h1 {
-
-    text-align: center; 
-
+.requiredFieldText {
+    
+    float: right;
+    font-style: italic;
+    font-size: small;
+    margin : 0px 10px 0px 0px;
 }
+
+

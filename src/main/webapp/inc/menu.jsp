@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Catnix</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 
 
@@ -31,11 +31,7 @@
             </div>
         </nav>
 
-        <!--<div class="container">
-          <h3>Basic Navbar Example</h3>
-          <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
-        </div> -->
+                <p class="requiredFieldText">Champs obligatoires : <span style="color: #c00">*</span></p>
 
-        <br/>
     </body>
 </html>

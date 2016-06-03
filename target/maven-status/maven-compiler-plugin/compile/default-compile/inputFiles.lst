@@ -1,6 +1,8 @@
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\beans\Member.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\TenderToAssignDaoImpl.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\beans\Tender.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\ProspectDaoImpl.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\beans\Prospect.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\AddTender.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\TenderToAssignDao.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\Connection.java
@@ -12,6 +14,7 @@ C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\AssignCpToTender.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\DAOFactoryInit.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\HandleTender.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\ProspectDao.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\DAOUtilitaire.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\forms\TenderForm.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\exceptions\DAOException.java
@@ -20,11 +23,15 @@ C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\TenderDaoImpl.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\MemberDao.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\PositionOnTender.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\forms\ProspectForm.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\ShowProspect.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\RejectTender.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\forms\PositionOnTenderForm.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\ShowProspectCard.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\forms\ConnectionForm.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\DAOFactory.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\exceptions\DAOConfigurationException.java
+C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\AddProspect.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\dao\MemberDaoImpl.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\Disconnection.java
 C:\Users\Léa Hansen\OneDrive\Documents\NetBeansProjects\Catnix\src\main\java\com\catnix\servlets\ConsultTendersToAssign.java

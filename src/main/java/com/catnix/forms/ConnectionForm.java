@@ -49,10 +49,9 @@ public class ConnectionForm {
         handleUsername(username);
         handlePassword(password, username);
 
-        if (getErrors().isEmpty()) {
-            result = "Connection successful !";
-        } else {
-            result = "Connection failed !";
+        if (!getErrors().isEmpty()) {
+
+            result = "La connexion a échoué !";
         }
 
         return memberConstruct(member, username);
@@ -96,16 +95,16 @@ public class ConnectionForm {
 
                 if (memberDao.find(username) == null) {
 
-                    throw new Exception("Username is incorrect.");
+                    throw new Exception("L'identifiant est incorrect.");
                 }
             } else {
 
-                throw new Exception("Username must be at least 3 characters long.");
+                throw new Exception("L'identifiant doit contenir au moins 3 charactères.");
             }
 
         } else {
 
-            throw new Exception("Please enter a username.");
+            throw new Exception("Ce champ ne peut être vide.");
         }
     }
 
@@ -117,16 +116,16 @@ public class ConnectionForm {
 
                 if (!password.equals(memberDao.find(username).getPassword())) {
 
-                    throw new Exception("Password is incorrect.");
+                    throw new Exception("Le mot de passe est inccorect.");
                 }
             } else {
 
-                throw new Exception("Password must be at least 3 characters long.");
+                throw new Exception("Le mot de passe doit contenir au moins 3 charactères.");
             }
 
         } else {
 
-            throw new Exception("Please enter a password.");
+            throw new Exception("Ce champ ne peut être vide.");
         }
     }
 

@@ -67,9 +67,9 @@ public class TenderForm {
 
         if (errors.isEmpty()) {
             tenderDao.create(tender);
-            result = "Adding succeeds !";
+            result = "Ajouté avec succès ! ";
         } else {
-            result = "Adding failed !";
+            result = "L'ajout à échoué !";
         }
 
         return tender;
@@ -103,6 +103,11 @@ public class TenderForm {
     }
 
     private void handleContactPhone(String contactPhone, Tender tender) {
+        try {
+            contactPhoneNumberValidation(contactPhone);
+        } catch (Exception e) {
+            setErreur(CONTACT_PHONE_FIELD, e.getMessage());
+        }
         tender.setContactPhone(contactPhone);
     }
 
@@ -125,12 +130,12 @@ public class TenderForm {
 
             if (field.length() < 4) {
 
-                throw new Exception("This field must be at least 4 characters long.");
+                throw new Exception("Ce champ doit contenir au moins 4 charactères.");
             }
 
         } else {
 
-            throw new Exception("Please fill the field.");
+            throw new Exception("Ce champ ne peut être vide.");
         }
     }
 
@@ -142,20 +147,35 @@ public class TenderForm {
 
                 if (tenderDao.find(title) != null) {
 
-                    throw new Exception("Title already exists please choose another one.");
+                    throw new Exception("Un appel d'offre ayant ce titre existe déjà, merci d'en saisir un nouveau.");
                 }
 
             } else {
 
-                throw new Exception("Title must be at least 5 characters long.");
+                throw new Exception("Le titre doit contenir au moins 5 charactères.");
 
             }
 
         } else {
 
-            throw new Exception("Please fill the field.");
+            throw new Exception("Ce champ ne peut être vide.");
         }
 
+    }
+    
+      public void contactPhoneNumberValidation(String contactPhone) throws SQLException, Exception {
+
+        if (contactPhone != null) {
+
+            if (contactPhone.length() < 10 || contactPhone.length() > 10 ) {
+
+                throw new Exception("Ce champ doit contenir 10 charactères.");
+            }
+
+        } else {
+
+            throw new Exception("Ce champ ne peut être vide.");
+        }
     }
 
     public void setErreur(String field, String message) {
